@@ -1184,16 +1184,17 @@ function drawSettings(){
   h+='<span class="lbl">Cloud save</span><p class="lead">'+(synOn()?'☁️ Connected. You and your partner share progress.':'📴 Not connected. Progress is saved on this device only.')+'</p><button class="btn" data-act="connect">☁️ '+(synOn()?'Manage cloud save':'Set up cloud save')+'</button>';
   h+='<span class="lbl">Journey start date</span><input class="field" type="date" id="startIn" value="'+startStr()+'" data-inp="startdate"><button class="btn" data-act="savestart" style="margin-top:8px">Save start date</button><small>Day numbers stay the same; only the calendar dates shift.</small>';
   h+='<span class="lbl">Smart Buddy <small>(optional)</small></span><p class="lead">'+(AIKEY?'🤖 Smart mode is ON ('+(AIPROV==='other'?'custom provider':'Claude')+', key saved on this device only).':'Paste an API key to unlock free chat and real quizzes. Works with Claude or any OpenAI-compatible provider (OpenAI, OpenRouter, Groq, DeepSeek, a local server, etc). It stays in this browser only.')+'</p>';
+  h+='<span class="lbl">Provider</span><div class="chips"><button class="chip'+(AIPROV==='claude'?' on':'')+'" data-act="setprov" data-v="claude">🟣 Claude (Anthropic)</button><button class="chip'+(AIPROV==='other'?' on':'')+'" data-act="setprov" data-v="other">🌐 Other (OpenAI-compatible)</button></div>';
+  if(AIPROV==='other'){
+    h+='<span class="lbl">API base URL</span><input class="field" id="aibase" data-inp="aibase" placeholder="https://api.groq.com/openai/v1" value="'+esc(AIBASE)+'" autocomplete="off" autocapitalize="off" spellcheck="false"><small>Groq: https://api.groq.com/openai/v1 · OpenAI: https://api.openai.com/v1 (no trailing /chat/completions).</small>';
+    h+='<span class="lbl">Model name'+(AICMODEL?'':' <small style="color:var(--carry)">(required — fill this in)</small>')+'</span><input class="field" id="aicmodel" data-inp="aicmodel" placeholder="e.g. llama-3.3-70b-versatile" value="'+esc(AICMODEL)+'" autocomplete="off" autocapitalize="off" spellcheck="false">';
+  }
   if(AIKEY){
     h+='<button class="btn" data-act="clearkey">Remove key</button>';
   }else{
-    h+='<span class="lbl">Provider</span><div class="chips"><button class="chip'+(AIPROV==='claude'?' on':'')+'" data-act="setprov" data-v="claude">🟣 Claude (Anthropic)</button><button class="chip'+(AIPROV==='other'?' on':'')+'" data-act="setprov" data-v="other">🌐 Other (OpenAI-compatible)</button></div>';
-    if(AIPROV==='other'){
-      h+='<span class="lbl">API base URL</span><input class="field" id="aibase" data-inp="aibase" placeholder="https://api.openai.com/v1" value="'+esc(AIBASE)+'" autocomplete="off" autocapitalize="off" spellcheck="false"><small>Claude uses api.anthropic.com automatically. For anything else, paste its base URL here (no trailing /chat/completions).</small>';
-      h+='<span class="lbl">Model name</span><input class="field" id="aicmodel" data-inp="aicmodel" placeholder="gpt-4o-mini" value="'+esc(AICMODEL)+'" autocomplete="off" autocapitalize="off" spellcheck="false">';
-    }
     h+='<span class="lbl">API key</span><input class="field" type="password" id="apikey" data-inp="apikey" placeholder="'+(AIPROV==='other'?'paste your key':'sk-ant-…')+'" autocomplete="off" autocapitalize="off" spellcheck="false"><button class="btn" data-act="savekey" style="margin-top:8px">Save key</button>';
   }
+  if(AIKEY&&AIPROV==='other')h+='<button class="btn" data-act="savekey" style="margin-top:8px">Update base URL / model</button>';
   if(AIKEY&&AIPROV==='claude')h+='<span class="lbl">Mock question quality</span><div class="chips"><button class="chip'+(AIMODEL==='sonnet'?' on':'')+'" data-act="setmodel" data-v="sonnet">Better (Sonnet)</button><button class="chip'+(AIMODEL==='haiku'?' on':'')+'" data-act="setmodel" data-v="haiku">Cheaper (Haiku)</button></div>';
   h+='<span class="lbl">Look</span><div class="chips"><button class="chip'+(theme==='dark'?' on':'')+'" data-act="theme" data-v="dark">🍷 Burgundy night</button><button class="chip'+(theme==='light'?' on':'')+'" data-act="theme" data-v="light">🌸 Blush day</button></div>';
   h+='<span class="lbl">Install like an app</span><div class="hintbox">Android (Chrome): menu ⋮ then “Install app”. iPhone (Safari): Share then “Add to Home Screen”. It opens full-screen with its own icon.</div>';
@@ -1756,13 +1757,25 @@ document.addEventListener('click',function(ev){
   else if(act==='disconnect'){SYN={url:'',room:''};persist();clearInterval(synTimer);setSync('local');drawConnect()}
   else if(act==='skipconn'){cfg.skip=1;persist();closeSheet()}
   else if(act==='savekey'){
+    if(AIKEY&&AIPROV==='other'){
+      if(!(AIBASE||'').trim()){snack('Add the API base URL first');return}
+      if(!(AICMODEL||'').trim()){snack('Add the model name first');return}
+      persist();snack('Base URL / model updated ✅');drawSettings();return;
+    }
     var kv=String(($('apikey')||{}).value||'').trim();
     if(!kv){snack('Paste an API key first');return}
-    if(AIPROV==='other'&&!(AIBASE||'').trim()){snack('Add the API base URL first');return}
+    if(AIPROV==='other'){
+      if(!(AIBASE||'').trim()){snack('Add the API base URL first');return}
+      if(!(AICMODEL||'').trim()){snack('Add the model name first');return}
+    }
     AIKEY=kv;persist();snack('Smart Buddy is on 🤖');drawSettings();
   }
   else if(act==='clearkey'){AIKEY='';persist();snack('Key removed');drawSettings()}
-  else if(act==='setprov'){AIPROV=V('data-v');drawSettings()}
+  else if(act==='setprov'){
+    var np=V('data-v');
+    if(np!==AIPROV&&AIKEY){AIKEY='';snack('Provider changed — add the matching key again')}
+    AIPROV=np;persist();drawSettings();
+  }
   else if(act==='theme'){theme=V('data-v');document.documentElement.setAttribute('data-theme',theme);persist();drawSettings()}
   else if(act==='savestart'){
     var s2=$('startIn');
