@@ -1252,6 +1252,8 @@ var CHAP=[
 ];
 var DIFF={e:{n:'Easy',em:'🟢',sec:90,d:'Concept checks and direct formulas'},m:{n:'Medium',em:'🟡',sec:120,d:'Typical GATE 1 and 2 mark questions'},h:{n:'Hard',em:'🔴',sec:180,d:'Multi-step, tricky, topper level'}};
 var PER=10,LSQ='gd3.bank',LSA='gd3.attempt',LSR='gd3.lastres';
+function attKey(){return LSA+'.'+(me||'x')}
+function resKey(){return LSR+'.'+(me||'x')}
 var MK={sub:'home',hm:0,mi:0,tr:'T',d:'e',att:null,res:null,busy:false,err:''};
 var BANK={},PACKF={},mockTimer=0,homeInit=false;
 var CUSTOM={},CHIST={},LSC='gd3.custom';
@@ -1301,7 +1303,7 @@ function saveBank(){
   try{localStorage.setItem(LSQ,JSON.stringify(BANK))}
   catch(e){var ks=Object.keys(BANK);ks.slice(0,Math.ceil(ks.length/2)).forEach(function(k){delete BANK[k]});try{localStorage.setItem(LSQ,JSON.stringify(BANK))}catch(e2){}}
 }
-function saveAtt(){try{if(MK.att)localStorage.setItem(LSA,JSON.stringify(MK.att));else localStorage.removeItem(LSA)}catch(e){}}
+function saveAtt(){try{if(MK.att)localStorage.setItem(attKey(),JSON.stringify(MK.att));else localStorage.removeItem(attKey())}catch(e){}}
 function cleanQs(arr){
   if(arr&&!Array.isArray(arr)&&typeof arr==='object')arr=Object.keys(arr).map(function(k){return arr[k]});
   if(!Array.isArray(arr))return [];
@@ -1447,7 +1449,7 @@ function submitMock(auto){
     }
   }
   MK.res={key:a.key,custom:!!a.custom,cid:a.cid,title:a.title,mi:a.mi,tr:a.tr,d:a.d,n:a.n,qs:a.qs,items:items,score:score,max:max,pct:pct,used:used,secs:a.secs,ok:ok,bad:bad,skip:skip,codes:{},auto:!!auto};
-  try{localStorage.setItem(LSR,JSON.stringify(MK.res))}catch(e){}
+  try{localStorage.setItem(resKey(),JSON.stringify(MK.res))}catch(e){}
   MK.att=null;saveAtt();MK.sub='result';
   if(tab==='mocks'){renderAll(false);window.scrollTo(0,0)}
   else snack(auto?"Time's up. Your mock was submitted. Open Mocks to see the score.":'Mock submitted. Open Mocks to see the score.');
@@ -1458,7 +1460,7 @@ function setCode(i,c){
   if(r.codes[i]===c)delete r.codes[i];else r.codes[i]=c;
   var mc={C:0,F:0,S:0,T:0};Object.keys(r.codes).forEach(function(k){mc[r.codes[k]]++});
   var e=D[me].mk[r.key];if(e){e.mc=mc;e.u=Date.now();markDirty()}
-  try{localStorage.setItem(LSR,JSON.stringify(r))}catch(er){}
+  try{localStorage.setItem(resKey(),JSON.stringify(r))}catch(er){}
   renderAll(true);
 }
 function flagQ(i){
@@ -1468,14 +1470,14 @@ function flagQ(i){
 }
 function loadAttempt(){
   try{
-    var r=JSON.parse(localStorage.getItem(LSA)||'null');
+    var r=JSON.parse(localStorage.getItem(attKey())||'null');
     if(r&&Array.isArray(r.qs)&&r.qs.length&&r.end){
       MK.att=r;
       if(r.end<=Date.now()){submitMock(true)}
       else{startTimer()}
     }
   }catch(e){}
-  try{var lr=JSON.parse(localStorage.getItem(LSR)||'null');if(lr&&Array.isArray(lr.qs)&&!MK.res)MK.res=lr}catch(e2){}
+  try{var lr=JSON.parse(localStorage.getItem(resKey())||'null');if(lr&&Array.isArray(lr.qs)&&!MK.res)MK.res=lr}catch(e2){}
 }
 function mockAgg(p){
   var mk=D[p].mk,keys=Object.keys(mk),A={mocks:keys.length,att:0,sumP:0,best:0,secs:0,byD:{e:[0,0],m:[0,0],h:[0,0]},byC:{},codes:{C:0,F:0,S:0,T:0}};
@@ -1693,7 +1695,10 @@ document.addEventListener('click',function(ev){
   else if(act==='sdrop'){setDrop(sheet.n,{note:sheet.note.trim()});closeSheet();renderAll(true)}
   else if(act==='sclear'){clearDay(sheet.n);closeSheet();renderAll(true)}
   else if(act==='iam'){
-    var p=V('data-p');me=p;view=p;
+    var p=V('data-p'),switching=(me!==p);
+    if(switching){clearInterval(mockTimer);MK.att=null;MK.res=null;MK.sub='home';MK.busy=false;MK.err=''}
+    me=p;view=p;
+    if(switching)loadAttempt();
     var si=$('startIn');
     if(!cfg.start){cfg.start=(si&&/^\d{4}-\d{2}-\d{2}$/.test(si.value))?si.value:ds(new Date());MEMO={};writeCfg()}
     persist();closeSheet();renderAll(false);
