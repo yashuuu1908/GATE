@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GATE Duo: Yashu × Bhavi</title>
+<meta name="theme-color" content="#3b0a1d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GATE Duo">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%236b1030'/%3E%3Ctext x='50' y='66' font-size='56' text-anchor='middle'%3E%F0%9F%92%9E%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f8dbe3; --bgA:#fff0f3; --bgB:#f0b4c6; --bgC:#e58aa8;
+  --text:#3b0a1b; --muted:#7d4b5b;
+  --glass:rgba(255,255,255,.55); --glassSolid:#fbe9ee; --gborder:rgba(122,20,52,.2); --gline:rgba(255,255,255,.7);
+  --shadow:0 10px 30px rgba(110,20,50,.16);
+  --accent:#8b1a3c; --accent2:#c2456b; --onAccent:#ffffff; --gold:#b8791a;
+  --ok:#1f9d63; --okBg:rgba(31,157,99,.2); --carry:#c97a00; --carryBg:rgba(201,122,0,.2); --drop:#8a7a80; --dropBg:rgba(138,122,128,.18);
+  --yashu:#3f55d0; --bhavi:#c2185b;
+  --field:rgba(255,255,255,.75); --tile:rgba(255,255,255,.5); --tilePast:rgba(255,255,255,.3);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1a050c; --bgA:#3b0a1d; --bgB:#5c1030; --bgC:#8c1c3d;
+    --text:#fff1f4; --muted:rgba(255,226,233,.7);
+    --glass:rgba(255,255,255,.09); --glassSolid:#3a1120; --gborder:rgba(255,255,255,.18); --gline:rgba(255,255,255,.28);
+    --shadow:0 12px 36px rgba(0,0,0,.45);
+    --accent:#ff8fab; --accent2:#e05a7f; --onAccent:#3a0716; --gold:#f5c980;
+    --ok:#7fe3b0; --okBg:rgba(127,227,176,.2); --carry:#ffc46b; --carryBg:rgba(255,196,107,.2); --drop:#b7a3aa; --dropBg:rgba(183,163,170,.18);
+    --yashu:#a9b8ff; --bhavi:#ff9ec0;
+    --field:rgba(255,255,255,.1); --tile:rgba(255,255,255,.08); --tilePast:rgba(255,255,255,.04);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1a050c; --bgA:#3b0a1d; --bgB:#5c1030; --bgC:#8c1c3d;
+  --text:#fff1f4; --muted:rgba(255,226,233,.7);
+  --glass:rgba(255,255,255,.09); --glassSolid:#3a1120; --gborder:rgba(255,255,255,.18); --gline:rgba(255,255,255,.28);
+  --shadow:0 12px 36px rgba(0,0,0,.45);
+  --accent:#ff8fab; --accent2:#e05a7f; --onAccent:#3a0716; --gold:#f5c980;
+  --ok:#7fe3b0; --okBg:rgba(127,227,176,.2); --carry:#ffc46b; --carryBg:rgba(255,196,107,.2); --drop:#b7a3aa; --dropBg:rgba(183,163,170,.18);
+  --yashu:#a9b8ff; --bhavi:#ff9ec0;
+  --field:rgba(255,255,255,.1); --tile:rgba(255,255,255,.08); --tilePast:rgba(255,255,255,.04);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:16px;line-height:1.45;overflow-x:hidden;min-height:100vh;min-height:100dvh}
+.bgfx{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(60% 42% at 12% 6%,var(--bgC) 0%,transparent 62%),
+   radial-gradient(50% 38% at 95% 26%,rgba(245,201,128,.22) 0%,transparent 62%),
+   radial-gradient(70% 50% at 25% 100%,var(--bgB) 0%,transparent 66%),
+   linear-gradient(165deg,var(--bgA),var(--bg))}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;margin:0;line-height:1.1;font-weight:800}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+small{color:var(--muted)}
+.glass{background:var(--glass);border:1px solid var(--gborder);border-radius:22px;box-shadow:var(--shadow),inset 0 1px 0 var(--gline);-webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:var(--glassSolid)}}
+#app{max-width:720px;margin:0 auto}
+.top{position:sticky;top:0;z-index:20;padding:calc(8px + env(safe-area-inset-top)) 12px 8px;display:grid;gap:8px}
+.hbar{display:flex;align-items:center;gap:10px;padding:8px 10px 8px 14px;border-radius:18px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;flex:1}
+.logo{font-size:26px}
+.brand b{font-family:'Fraunces',Georgia,serif;font-size:19px;display:block;line-height:1}
+.brand small{display:block;font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 10px;font-size:12.5px;font-weight:700;background:var(--field);border:1px solid var(--gborder);white-space:nowrap}
+.ico{width:40px;height:40px;border-radius:14px;border:1px solid var(--gborder);background:var(--field);font-size:18px;flex:none}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:5px;border-radius:18px}
+.seg button{border:0;background:transparent;border-radius:14px;padding:8px 6px;text-align:center;min-height:46px;line-height:1.15}
+.seg button b{display:block;font-size:15px}
+.seg button small{font-size:11.5px;display:block}
+.seg button.on{background:linear-gradient(135deg,var(--accent2),var(--accent));color:var(--onAccent)}
+.seg button.on small{color:inherit;opacity:.85}
+.view{padding:6px 12px calc(104px + env(safe-area-inset-bottom))}
+.card{padding:16px;margin-top:12px}
+.card h2{font-size:22px;margin-bottom:6px}
+.lead{color:var(--muted);margin:0 0 4px;font-size:14.5px}
+.love{margin:18px 6px 0;text-align:center;font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:600;font-size:17px;color:var(--gold);line-height:1.35}
+.tabbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(8px + env(safe-area-inset-bottom));width:min(704px,calc(100% - 16px));z-index:30;display:grid;grid-template-columns:repeat(5,1fr);gap:2px;padding:6px;border-radius:24px}
+.tb{border:0;background:transparent;border-radius:18px;padding:6px 2px;display:grid;justify-items:center;gap:0;min-height:52px}
+.tb span{font-size:20px;line-height:1.1}
+.tb b{font-size:11px;font-weight:700;color:var(--muted)}
+.tb.on{background:linear-gradient(135deg,var(--accent2),var(--accent))}
+.tb.on b{color:var(--onAccent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--gborder);background:var(--field);border-radius:999px;padding:8px 13px;font-size:14px;font-weight:500;min-height:40px}
+.chip.on{background:var(--accent);color:var(--onAccent);border-color:transparent;font-weight:700}
+.btn{border:0;border-radius:16px;padding:12px 16px;font-weight:700;min-height:48px;background:var(--field);border:1px solid var(--gborder)}
+.btn.pri{background:linear-gradient(135deg,var(--accent2),var(--accent));color:var(--onAccent);border-color:transparent}
+.btn.ok{background:var(--okBg);border-color:var(--ok)}
+.btn.warn{background:var(--carryBg);border-color:var(--carry)}
+.btn:disabled{opacity:.5}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.stack{display:grid;gap:8px;margin-top:10px}
+.hello{margin:10px 4px 0}
+.hello h1{font-size:28px}
+.hello p{margin:4px 0 0;color:var(--muted)}
+.daychips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.mission{border-left:6px solid var(--pc,var(--accent))}
+.mtop{display:flex;gap:12px;align-items:flex-start}
+.mtop .big{font-size:38px;line-height:1}
+.mtop h2{font-size:23px;margin:0}
+.tag{display:inline-block;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:700;background:var(--field);border:1px solid var(--gborder);margin-right:6px}
+.banner{border-radius:14px;padding:10px 12px;font-weight:700;margin-top:10px;background:var(--okBg);border:1px solid var(--ok)}
+.banner.carry{background:var(--carryBg);border-color:var(--carry)}
+.glance{display:grid;gap:8px;margin-top:8px}
+.grow{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:16px;background:var(--field);border:1px solid var(--gborder);min-width:0}
+.grow .who{font-size:22px}
+.grow .tx{min-width:0;flex:1}
+.grow .tx b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.st{font-size:12.5px;font-weight:700;border-radius:999px;padding:3px 10px;flex:none;background:var(--tile);border:1px solid var(--gborder)}
+.st.s-done{background:var(--okBg);border-color:var(--ok)}
+.st.s-carry{background:var(--carryBg);border-color:var(--carry)}
+.st.s-drop{background:var(--dropBg);border-color:var(--drop)}
+.qbox{margin-top:12px;padding:14px;border-radius:18px;background:var(--field);border:1px dashed var(--gborder);font-family:'Fraunces',Georgia,serif;font-size:19px;line-height:1.3;font-weight:600}
+.qhint{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:400;margin-top:8px;color:var(--muted);display:block}
+.carrylist{display:grid;gap:8px;margin-top:8px}
+.citem{padding:10px 12px;border-radius:16px;background:var(--carryBg);border:1px solid var(--carry)}
+.citem b{display:block}
+.citem small{display:block;margin-top:2px;overflow-wrap:anywhere}
+.citem .row2{margin-top:8px}
+/* days */
+.mstrip{display:flex;gap:6px;overflow-x:auto;padding:10px 2px 6px;scroll-snap-type:x proximity;scrollbar-width:none}
+.mstrip::-webkit-scrollbar{display:none}
+.mchip{flex:none;scroll-snap-align:center;min-width:52px;min-height:44px;border-radius:14px;border:1px solid var(--gborder);background:var(--field);font-weight:700;font-size:14px;padding:0 10px}
+.mchip.now{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.mchip.on{background:linear-gradient(135deg,var(--accent2),var(--accent));color:var(--onAccent);border-color:transparent}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin-top:12px}
+@media(min-width:520px){.grid{grid-template-columns:repeat(10,1fr)}}
+.tile{position:relative;aspect-ratio:1/1;min-width:0;border-radius:14px;border:1px solid var(--gborder);background:var(--tile);padding:0;display:block;overflow:hidden}
+.tile i{font-style:normal;position:absolute}
+.tile .dn{left:6px;top:4px;font-size:11.5px;font-weight:700;color:var(--muted)}
+.tile .te{left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font-size:19px;line-height:1}
+.tile .wd{left:6px;bottom:3px;font-size:9.5px;color:var(--muted);font-weight:700}
+.tile .od{right:6px;bottom:6px;width:9px;height:9px;border-radius:50%;background:var(--oc);border:2px solid var(--oc)}
+.tile .od.o-carry{background:transparent}
+.tile .od.o-drop{opacity:.4}
+.tile.s-done{background:var(--okBg);border-color:var(--ok)}
+.tile.s-done .te{color:var(--ok);font-weight:800;font-size:22px}
+.tile.s-carry{background:var(--carryBg);border-color:var(--carry)}
+.tile.s-drop{background:var(--dropBg);border-color:var(--drop)}
+.tile.mile{border-color:var(--gold)}
+.tile.today{box-shadow:0 0 0 2px var(--gold),0 0 18px rgba(245,201,128,.55)}
+@media (prefers-reduced-motion:no-preference){.tile.today{animation:glow 2.6s ease-in-out infinite}}
+@keyframes glow{50%{box-shadow:0 0 0 2px var(--gold),0 0 4px rgba(245,201,128,.2)}}
+.legend{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12.5px;color:var(--muted);margin-top:12px}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.sw{width:12px;height:12px;border-radius:4px;border:1px solid var(--gborder);display:inline-block}
+/* syllabus */
+.acc{margin-top:10px;overflow:hidden}
+.acc summary,.acc .ah{list-style:none}
+.ah{display:flex;gap:10px;align-items:center;width:100%;padding:14px 16px;background:transparent;border:0;text-align:left}
+.ah .mn{font-family:'Fraunces',Georgia,serif;font-weight:800;font-size:19px}
+.ah .ms{font-size:12.5px;color:var(--muted)}
+.ah .ch{margin-left:auto;font-size:18px}
+.bar{height:8px;border-radius:99px;background:var(--tile);overflow:hidden;border:1px solid var(--gborder)}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent2),var(--gold));border-radius:99px}
+.abody{padding:0 14px 14px}
+.sub{display:flex;gap:10px;align-items:center;width:100%;text-align:left;padding:10px 12px;margin-top:6px;border-radius:14px;background:var(--field);border:1px solid var(--gborder)}
+.sub .sn{font-weight:700;min-width:0;flex:1;overflow-wrap:anywhere}
+.sub small{display:block;font-weight:400}
+.sub .ok{color:var(--ok);font-weight:800}
+.testline{margin-top:8px;padding:10px 12px;border-radius:14px;border:1px dashed var(--gold);font-weight:700}
+/* progress */
+.pc{border-top:5px solid var(--pc)}
+.pch{display:flex;align-items:center;gap:12px}
+.av{font-size:30px}
+.pch b{font-family:'Fraunces',Georgia,serif;font-size:20px;display:block}
+.pch .rg{margin-left:auto}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:12px;text-align:center}
+.kpis div{background:var(--field);border:1px solid var(--gborder);border-radius:14px;padding:8px 2px;min-width:0}
+.kpis b{display:block;font-family:'Fraunces',Georgia,serif;font-size:19px}
+.kpis small{font-size:11px}
+.heat{display:grid;grid-template-columns:repeat(14,1fr);gap:4px;margin-top:8px}
+.hc{aspect-ratio:1/1;border-radius:5px;background:var(--tile);border:1px solid var(--gborder)}
+.hc.s-done{background:var(--ok);border-color:var(--ok)}
+.hc.s-carry{background:var(--carry);border-color:var(--carry)}
+.hc.s-drop{background:var(--drop);border-color:var(--drop)}
+.hc.none{opacity:.5}
+.jb{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+@media(min-width:520px){.jb{grid-template-columns:repeat(3,1fr)}}
+.jbi{padding:8px 10px;border-radius:14px;background:var(--field);border:1px solid var(--gborder);font-size:12.5px;font-weight:700}
+.jbi .bar{height:6px;margin-top:5px}
+.jbi .bar i{background:var(--yashu)}
+.jbi .bar.b i{background:var(--bhavi)}
+.feed{display:grid;gap:8px;margin-top:8px}
+.fi{padding:10px 12px;border-radius:14px;background:var(--field);border:1px solid var(--gborder);font-size:14.5px;overflow-wrap:anywhere}
+.fi small{display:block}
+.report{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14.5px;line-height:1.5}
+/* buddy */
+.chat{display:grid;gap:10px;margin-top:10px}
+.msg{max-width:88%;padding:10px 13px;border-radius:18px;overflow-wrap:anywhere;font-size:15.5px;line-height:1.45}
+.msg.u{justify-self:end;background:linear-gradient(135deg,var(--accent2),var(--accent));color:var(--onAccent);border-bottom-right-radius:6px}
+.msg.b{justify-self:start;background:var(--field);border:1px solid var(--gborder);border-bottom-left-radius:6px}
+.composer{position:sticky;bottom:calc(74px + env(safe-area-inset-bottom));display:flex;gap:8px;align-items:flex-end;margin-top:12px;padding:8px;border-radius:20px;z-index:10}
+.composer textarea{flex:1;min-width:0;resize:none;border:0;background:var(--field);color:var(--text);border-radius:14px;padding:11px 12px;font:inherit;font-size:16px;max-height:120px;min-height:44px}
+.send{flex:none;width:48px;height:48px;border-radius:16px;border:0;background:linear-gradient(135deg,var(--accent2),var(--accent));color:var(--onAccent);font-size:20px}
+/* sheet */
+.sheetwrap{position:fixed;inset:0;z-index:60;display:flex;align-items:flex-end;justify-content:center;background:rgba(20,2,8,.55);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.sheet{width:min(720px,100%);max-height:90vh;max-height:90dvh;overflow-y:auto;overscroll-behavior:contain;border-radius:26px 26px 0 0;padding:16px 16px calc(20px + env(safe-area-inset-bottom));background:var(--glassSolid)}
+@media(min-width:760px){.sheetwrap{align-items:center}.sheet{border-radius:26px}}
+.sheet h2{font-size:24px}
+.shead{display:flex;align-items:flex-start;gap:10px}
+.shead .x{margin-left:auto;flex:none;width:40px;height:40px;border-radius:12px;border:1px solid var(--gborder);background:var(--field)}
+.field{width:100%;border:1px solid var(--gborder);background:var(--field);color:var(--text);border-radius:14px;padding:11px 12px;font:inherit;font-size:16px;margin-top:8px}
+textarea.field{min-height:76px;resize:vertical}
+.err{color:var(--carry);font-weight:700;margin-top:6px;min-height:1.2em}
+.lbl{display:block;font-weight:700;margin-top:14px;font-size:14px}
+.big2{display:grid;gap:10px;margin-top:14px}
+.big2 button{padding:16px;border-radius:18px;border:1px solid var(--gborder);background:var(--field);text-align:left;font-size:17px;font-weight:700}
+.big2 button small{display:block;font-weight:400}
+.snack{position:fixed;left:50%;transform:translate(-50%,20px);bottom:calc(92px + env(safe-area-inset-bottom));z-index:80;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;background:var(--glassSolid);color:var(--text);border:1px solid var(--gborder);border-radius:18px;padding:11px 14px;box-shadow:var(--shadow);display:flex;gap:10px;align-items:center;width:max-content;max-width:calc(100% - 24px);font-weight:700;font-size:14.5px}
+.snack.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.snack button{border:0;border-radius:12px;padding:8px 10px;background:var(--accent);color:var(--onAccent);font-weight:700;flex:none}
+#confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:90}
+textarea{font-family:inherit}
+
+/* ===== v3: deeper glass + scroll motion ===== */
+:root{--glA:rgba(255,255,255,.78);--glB:rgba(255,255,255,.4);--sheet:rgba(255,241,245,.92)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--glA:rgba(255,255,255,.17);--glB:rgba(255,255,255,.05);--sheet:rgba(42,8,22,.84)}}
+:root[data-theme="dark"]{--glA:rgba(255,255,255,.17);--glB:rgba(255,255,255,.05);--sheet:rgba(42,8,22,.84)}
+.glass{background:linear-gradient(140deg,var(--glA),var(--glB));-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:var(--glassSolid)}}
+.glass:not(.tabbar):not(.composer){position:relative}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;background:linear-gradient(145deg,rgba(255,255,255,.65),rgba(255,255,255,0) 38%,rgba(255,255,255,0) 62%,rgba(255,170,190,.45));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude}
+.glass::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;background:radial-gradient(280px circle at var(--mx,30%) var(--my,0%),rgba(255,255,255,.2),transparent 62%)}
+@media(hover:hover){.glass:hover::after{opacity:1}}
+.sheet.glass{background:var(--sheet);-webkit-backdrop-filter:blur(30px) saturate(180%);backdrop-filter:blur(30px) saturate(180%)}
+.orbs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.orb{position:absolute;width:70vmax;height:70vmax;will-change:transform;transform:translate3d(0,calc(var(--sy,0) * var(--k) * 1px),0)}
+.orb i{display:block;width:100%;height:100%;border-radius:50%;animation:drift 24s ease-in-out infinite alternate}
+.o1{left:-28vmax;top:-22vmax;--k:-.10}.o1 i{background:radial-gradient(circle at 40% 40%,rgba(224,90,127,.55),transparent 62%)}
+.o2{right:-34vmax;top:18vh;--k:-.22}.o2 i{background:radial-gradient(circle at 50% 50%,rgba(245,201,128,.30),transparent 62%);animation-duration:30s}
+.o3{left:-12vmax;bottom:-38vmax;--k:-.16}.o3 i{background:radial-gradient(circle at 50% 50%,rgba(140,28,61,.75),transparent 64%);animation-duration:36s}
+:root[data-theme="light"] .orb{opacity:.55}
+@keyframes drift{to{transform:translate3d(7vmax,-5vmax,0) scale(1.1)}}
+.sprog{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--accent2),var(--gold));z-index:70;pointer-events:none}
+.top .brand small{transition:opacity .3s,max-height .3s;max-height:20px}
+.top.scrolled .brand small{opacity:0;max-height:0}
+.top.scrolled .hbar{box-shadow:0 14px 36px rgba(0,0,0,.5),inset 0 1px 0 var(--gline)}
+.seg button{position:relative;z-index:1;transition:color .3s}
+.seg button.on{background:none}
+.seg .ind{position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 8px);border-radius:14px;background:linear-gradient(135deg,var(--accent2),var(--accent));box-shadow:0 6px 18px rgba(0,0,0,.3);transition:transform .45s cubic-bezier(.3,.9,.3,1)}
+.seg.p-bhavi .ind{transform:translateX(calc(100% + 6px))}
+.tb{position:relative;z-index:1}
+.tb.on{background:none}
+.tb span{transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.tb.on span{transform:translateY(-2px) scale(1.15)}
+.tabbar .ind{position:absolute;top:6px;bottom:6px;left:6px;width:calc((100% - 20px) / 5);border-radius:18px;background:linear-gradient(135deg,var(--accent2),var(--accent));box-shadow:0 6px 20px rgba(0,0,0,.35);transition:transform .45s cubic-bezier(.3,.9,.3,1)}
+.reveal{opacity:0}
+.reveal.in{opacity:1;animation:rise .65s cubic-bezier(.2,.7,.2,1) var(--d,0ms) backwards}
+@keyframes rise{from{opacity:0;transform:translateY(20px) scale(.985)}}
+.view.enter{animation:viewIn .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes viewIn{from{opacity:0;transform:translateY(12px)}}
+.sheetwrap{animation:fadeIn .25s ease}
+.sheet{animation:sheetUp .42s cubic-bezier(.2,.9,.25,1)}
+@keyframes fadeIn{from{opacity:0}}
+@keyframes sheetUp{from{transform:translateY(40px);opacity:0}}
+.tile{transition:transform .15s ease,box-shadow .2s ease}
+.tile:active{transform:scale(.92)}
+@media(hover:hover){.tile:hover{transform:translateY(-2px)}}
+.btn{transition:transform .12s ease,filter .2s}.btn:active{transform:scale(.97)}
+.hero{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;padding:16px;margin-top:12px;overflow:hidden}
+.hr{position:relative;width:132px;height:132px}
+.hring{width:132px;height:132px;display:block}
+.pg{stroke-dasharray:351.86;stroke-dashoffset:351.86}
+.hero.in .pg{stroke-dashoffset:calc(351.86px * (1 - var(--p)));transition:stroke-dashoffset 1.5s cubic-bezier(.2,.8,.2,1) .3s}
+.hc2{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.hc2 b{font-family:'Fraunces',Georgia,serif;font-size:34px;line-height:1}
+.ht h2{font-size:21px;margin-bottom:2px}
+.mb{margin-top:8px;font-size:12.5px;font-weight:700}
+.mb .bar{height:7px;margin-top:3px}
+.mb.y .bar i{background:var(--yashu)}.mb.b .bar i{background:var(--bhavi)}
+.sheen{position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.2) 50%,transparent 65%);transform:translateX(-100%);animation:sweep 7s ease-in-out infinite}
+@keyframes sweep{60%,100%{transform:translateX(100%)}}
+@media(max-width:380px){.hero{grid-template-columns:1fr;justify-items:center;text-align:center}}
+.steps{margin:6px 0 0;padding-left:20px;font-size:14.5px;color:var(--muted)}
+.hintbox{margin-top:10px;padding:10px 12px;border-radius:14px;border:1px dashed var(--gborder);font-size:13.5px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1}.reveal.in{animation:none}.orb i,.sheen,.tile.today,.sheet,.sheetwrap,.view.enter{animation:none}.pg{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bgfx" aria-hidden="true"></div>
+<div class="orbs" id="orbs" aria-hidden="true"><div class="orb o1"><i></i></div><div class="orb o2"><i></i></div><div class="orb o3"><i></i></div></div>
+<div class="sprog" id="sprog" aria-hidden="true"></div>
+<div id="app">
+  <header class="top" id="top"></header>
+  <main class="view" id="view"></main>
+</div>
+<nav class="tabbar glass" id="tabbar" aria-label="Main"></nav>
+<div class="sheetwrap" id="sheetWrap" hidden></div>
+<div class="snack" id="snack" role="status" aria-live="polite"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<script>
+(function(){
+'use strict';
+
+/* ================= CONTENT ================= */
+var PHASES=[{n:'Foundation',e:'🌱'},{n:'Build',e:'🔨'},{n:'Expand',e:'🚀'},{n:'Integrate',e:'🧩'}];
+var PEOPLE={
+  yashu:{name:'Yashu',track:'CS + DA',short:'CS',emoji:'💻'},
+  bhavi:{name:'Bhavi',track:'Civil (CE)',short:'CE',emoji:'🏗️'}
+};
+var MILE={5:1,11:1,17:1,23:1};
+// [phase, test, together, CS+DA (Yashu), Civil (Bhavi)]
+var RAW=[
+[0,"20-Q shared quiz","Matrix basics & operations|Determinant & inverse|Rank of a matrix|Systems of linear equations|Gaussian elimination|Practice set","Python syntax, variables, data types|Control flow: if and loops|Functions & scope in C|Arrays and strings in C|Operators & basic I/O|Mini practice set (20 problems)","Forces, moments & couples|Resultant of force systems|Free body diagrams (intro)|Friction basics|Centroid & moment of inertia|Practice set"],
+[0,"Math chapter test","Vector spaces & subspaces|Linear independence & basis|Eigenvalues & eigenvectors|Cayley–Hamilton theorem|Vector algebra basics|Math chapter practice","Function calls & the call stack|Recursion: base case & tracing|Recursion tree & simple recurrences|1D & 2D arrays|Array problems: rotate, prefix sums|Output-tracing PYQ style programs","FBD drawing|Equilibrium of particles|Equilibrium of rigid bodies|Trusses: method of joints|Trusses: method of sections|Support reactions PYQs"],
+[0,"Common timed quiz","Limits & continuity|Standard limits|Differentiability|Derivatives & rules|Maxima & minima|Mean value theorems","Pointers & addresses|Pointer arithmetic & arrays|Dynamic memory (malloc/free)|Structs & unions|Stack vs heap, scope & lifetime|Intro to abstract data types","Stress & strain, Hooke's law|Elastic constants & relations|Axially loaded members|Composite bars & thermal stress|Strain energy|Principal stresses & Mohr's circle"],
+[0,"Chapter test","Indefinite integrals|Definite integrals & properties|Integration techniques|Improper integrals|Areas & applications|Practice set","Stack: push, pop, applications|Expression evaluation & infix to postfix|Queue & circular queue|Deque & priority queue basics|Singly linked list operations|Doubly & circular lists, reversal","Beam types & support reactions|SFD/BMD for point loads|SFD/BMD for UDL & moments|Bending stress & flexure formula|Shear stress in beams|Deflection basics"],
+[0,"Probability test","Counting & basic probability|Conditional probability|Bayes' theorem|Random variables|Expectation & variance|Probability practice test","Tree terminology & binary trees|Traversals: in, pre, post, level|BST insert, search, delete|Height, diameter, counting nodes|Heaps & heap sort basics|AVL & balancing intro","Fluid properties: density, viscosity, surface tension|Pressure & manometers|Hydrostatic force on surfaces|Buoyancy & floatation|Stability of floating bodies|Fluid kinematics intro"],
+[0,"6-month checkpoint","Mean, median, mode|Binomial & Poisson|Normal distribution|Uniform & exponential|Correlation & regression|Checkpoint revision","NumPy arrays & operations|Pandas: DataFrame basics|Descriptive statistics in Python|Data cleaning & visualisation|Correlation & covariance|Checkpoint revision & mixed PYQs","Continuity equation|Bernoulli's equation|Venturimeter, orifice, pitot tube|Momentum equation|Flow through pipes intro|Checkpoint revision & PYQs"],
+[1,"DS / Geotech test","Revise matrices & linear algebra|Revise calculus|Revise probability|PYQs: linear algebra|PYQs: calculus|PYQs: probability","Asymptotic notation: O, Omega, Theta|Analysing loops|Solving recurrences|Master theorem|Graph representations|BFS and DFS","Soil formation & types|Phase relationships|Index properties & Atterberg limits|Soil classification (IS)|Compaction|Practice numericals"],
+[1,"Objective + PYQs","Percentages & ratios|Time, speed & work|Number series & sequences|Data interpretation: tables|Data interpretation: charts|Quant PYQs","Bubble, selection, insertion sort|Merge sort & quick sort|Heap sort & sorting lower bound|Hashing: functions & collisions|Chaining vs open addressing|Searching & mixed PYQs","Darcy's law & permeability|Seepage & flow nets|Capillarity|Effective stress principle|Quick condition & piping|Practice numericals"],
+[1,"Quarterly mixed","Revise conditional probability & Bayes|Random variables revision|Distributions revision|Hard probability PYQs|Combinatorics puzzles|Timed probability set","Greedy: activity selection|Huffman coding|Fractional knapsack & job sequencing|Divide & conquer: merge sort, binary search|Closest pair & Strassen (idea)|Mixed PYQs","Compressibility & consolidation|Terzaghi's 1D consolidation|Time rate & settlement|Mohr–Coulomb failure criterion|Shear tests: direct, triaxial, UCS|Practice numericals"],
+[1,"Algorithms / Fluids","Speed maths tricks|Numerical answer type strategy|Calculus numericals|Linear algebra numericals|Probability numericals|Mixed timed set","DP: idea & memoisation|0/1 knapsack & LCS|LIS & matrix chain multiplication|Dijkstra & Bellman-Ford|Floyd-Warshall|MST: Kruskal & Prim","Laminar & turbulent flow|Pipe flow losses & Darcy–Weisbach|Pipes in series, parallel & networks|Open channel: uniform flow (Manning)|Specific energy & critical flow|Hydraulic jump & GVF"],
+[1,"Sectional tests","Grammar & sentence correction|Vocabulary & word usage|Reading comprehension|Logical reasoning|Analytical & seating puzzles|Verbal PYQs","Number systems & conversions|Boolean algebra & K-maps|Combinational circuits: adders, mux, decoders|Sequential: latches & flip-flops|Counters & registers|Minimisation & PYQs","Hydrologic cycle & precipitation|Infiltration & runoff|Hydrographs & unit hydrograph|Flood routing & frequency (basic)|Irrigation: crop water requirement|Canals & reservoirs"],
+[1,"Year-1 diagnostic","Maths formula sheet|GA rules & formula sheet|Mixed math PYQs|Mixed GA PYQs|Timed mega set|Year-1 diagnostic review","Machine instructions & addressing modes|CPU datapath & pipelining|Pipeline hazards|Cache & memory hierarchy|I/O & interrupts (intro)|Relational model & SQL basics","Groundwater & well hydraulics|Reservoir planning|Gravity dam basics|Environmental engineering intro|Water demand & quality|Year-1 revision"],
+[2,"OS / Water test","Linear algebra PYQs|Calculus PYQs|Probability PYQs|Statistics PYQs|Mixed PYQs|Analyse your errors","OS basics & system calls|Processes & states|Threads: user vs kernel|CPU scheduling: FCFS, SJF, RR|Priority & multilevel queue|Scheduling numericals","Complete hydrology revision|Irrigation methods & efficiency|Canal design (Kennedy, Lacey)|Well hydraulics numericals|Dams & spillways|Water resources PYQ set"],
+[2,"Objective test","Verbal speed set|Quant speed set|DI speed set|Reasoning speed set|Mixed GA timed set|Error log review","Critical section problem|Semaphores & mutex|Producer-consumer & readers-writers|Deadlock: necessary conditions|Banker's algorithm|Deadlock PYQs","Water quality parameters|Sedimentation & coagulation|Filtration|Disinfection|Water distribution systems|Treatment numericals"],
+[2,"OS / Environment","Descriptive stats PYQs|Distribution PYQs|Sampling & hypothesis basics|Regression PYQs|Mixed stats set|Analyse your errors","Paging & address translation|Segmentation|Virtual memory & page replacement|TLB & thrashing numericals|File system structure & allocation|Disk scheduling","Wastewater characteristics: BOD, COD|Sewer design|Primary & secondary treatment|Activated sludge & trickling filter|Sludge treatment|Solid waste management"],
+[2,"Quarterly mixed","PYQs: linear algebra + calculus|PYQs: probability + stats|PYQs: GA verbal|PYQs: GA quant|Timed mixed set|Error analysis","ER model to relational|Relational algebra|SQL: joins, group by, nested queries|Functional dependencies|Normal forms: 1NF to BCNF|Decomposition & PYQs","Air pollutants & sources|Meteorology & plume behaviour|Air pollution control devices|Noise pollution|Environmental impact assessment|Mixed environment PYQs"],
+[2,"DBMS / Transport","Find your weak math topics|Repair weak topic 1|Repair weak topic 2|Redo old wrong PYQs|Timed math set|Formula recap","Transactions & ACID|Schedules & serializability|Concurrency control & 2PL|Recovery basics|File organisation & indexing|B and B+ trees","Highway alignment|Sight distances|Horizontal curves & superelevation|Vertical curves|Cross-section elements|Numericals & PYQs"],
+[2,"18-month checkpoint","GA full set 1|GA full set 2|GA full set 3|Weak GA area repair|Timed GA sectional|Checkpoint review","OSI & TCP/IP layers|Data link: framing & error control|Sliding window & flow control|MAC: Ethernet & CSMA|IP addressing & subnetting|Routing, TCP/UDP & application layer","Traffic studies: volume & speed|Speed-flow-density relations|Capacity & level of service|Intersections & signal design|Parking & accident studies|Checkpoint revision"],
+[3,"ML / Pavement","Mixed math set 1|Mixed math set 2|Weak math repair|Math + GA mixed set|Timed set|Error analysis","ML basics: supervised vs unsupervised|Linear & logistic regression|Decision trees|k-NN|SVM|Bias-variance & evaluation","Flexible pavement design|Rigid pavement design|Pavement materials & tests|Bitumen & aggregate tests|Railway & airport basics|Numericals"],
+[3,"DA / Geomatics","Mixed stats set 1|Mixed stats set 2|Probability revisit|Distributions revisit|Timed set|Error analysis","PCA|k-means clustering|Hierarchical clustering|AI search: BFS, DFS, A*|Logic & inference (propositional, FOL)|Probabilistic reasoning (Bayes nets)","Surveying basics: chain & compass|Levelling|Theodolite & traversing|Curves & tacheometry|Remote sensing & GIS basics|Numericals"],
+[3,"TOC / Structures","GA 30-min block 1|GA 30-min block 2|GA 30-min block 3|Verbal weak spots|Quant weak spots|Timed full GA","Regular languages, DFA & NFA|Regular expressions & pumping lemma|DFA minimisation|Context-free grammars|PDA & CFL properties|Closure properties & PYQs","Determinacy & stability|Deflection: unit load, moment-area|Influence lines|Slope-deflection method|Moment distribution|Arches & trusses"],
+[3,"Compiler / Materials","Linear algebra formula sprint|Calculus formula sprint|Probability formula sprint|Stats formula sprint|Rapid-fire quiz|Final formula sheet","Turing machines|Decidability & undecidability|Lexical analysis|Parsing: LL(1) & LR|Syntax-directed translation|Code generation & optimisation basics","Concrete materials & mix design|Limit state design of RCC beams|RCC slabs & columns|Steel: tension & compression members|Steel beams & connections|Prestressed concrete basics"],
+[3,"Full sectionals","List your common weak topics|Repair weak topic 1|Repair weak topic 2|Repair weak topic 3|Mixed timed set|Sectional test","Revise DSA + Algorithms|Revise OS + COA|Revise DBMS + CN|Revise TOC + Compiler|Revise ML + DA topics|Full-length section practice","Construction materials & equipment|Project planning: CPM & PERT|Estimating & costing|Weak topic repair 1|Weak topic repair 2|Mixed sectional"],
+[3,"24-month master mock","Mega revision: Maths|Mega revision: GA|Mixed PYQs|Timed full common set|Error analysis|Celebrate & plan the next phase","Repair weak topic 1 (from your red list)|Repair weak topic 2|Formula & concept sheets|Mixed PYQs: DSA & algorithms|Mixed PYQs: systems & DBMS|Master mock + analysis","Repair: Structures|Repair: Geotech & Fluids|Repair: Water & Environment|Repair: Transport & Geomatics|Formula sheet & revision|Master mock + analysis"]
+];
+var MONTHS=RAW.map(function(r){return {ph:r[0],test:r[1],tog:r[2].split('|'),cs:r[3].split('|'),ce:r[4].split('|')}});
+
+var MOODS=[['fire','🔥','Pumped'],['happy','😄','Happy'],['ok','🙂','Okay'],['tired','😴','Tired'],['stress','😵‍💫','Stressed'],['low','🥺','Low']];
+var MOODKEYS=MOODS.map(function(m){return m[0]});
+var QUOTES={
+ fire:["Ride this energy. Today's hour is going to feel easy. 🔥","Momentum is a superpower. Use it, then rest proud.","Pumped days are gifts. Bank one extra question for the tired days.","Show that syllabus who's boss. 👑","Energy like this is how 24 months become 'we actually did it'.","Go get it. Your future selves are cheering."],
+ happy:["Happy brains learn faster. Enjoy this hour like a treat. 🍓","A smile and a chapter. Best combo.","Today feels light. Let the study feel light too.","Joy is allowed on a GATE journey. It's actually the fuel.","You two make hard things look cheerful. Keep going.","Good mood plus one hour is quiet magic. ✨"],
+ ok:["'Okay' days are the backbone of every big goal.","You don't need fireworks. Just one honest hour.","Steady beats spectacular. Every single time.","Show up small, leave proud.","Regular day, regular hour, extraordinary year.","Ordinary consistency is your quiet superpower."],
+ tired:["Tired is real. Do 20 focused minutes and call it a win. 🌙","Rest is part of the plan. So is a tiny session.","Too heavy today? Move it to tomorrow, leave a note, sleep well. No guilt. 💛","Slow progress is still progress. Be gentle with yourself.","Drink water, stretch, then one small topic. That's enough.","Tomorrow's you will thank tonight's you for resting smart."],
+ stress:["Breathe. One topic, one page, one hour. That's all today asks.","Stress shrinks when the task shrinks. Pick the smallest next step.","College first. GATE will wait patiently for you. 🌿","You've handled every hard day so far. This one too.","Take a five-minute reset, then decide what's doable. You're not behind.","You don't have to do it all. You just have to not quit. 💪"],
+ low:["Heavy day? That's okay. Your goal stays right where you left it. 🤍","Low days pass. You're allowed to rest and still be on track.","One tiny thing today is plenty. Even just opening the book. 📖","Be as kind to yourself as you would be to someone you love.","You are more than a study chain. Take care of you first. 🌷","Talk to your person, or to Buddy. You don't have to carry it alone."]
+};
+var GENERAL=["We don't have to be perfect. We just have to keep showing up, together.","Two people. Two paths. One study table.","Small steps become big results.","Different subjects. Same team.","We don't need motivation every day. We need the habit.","Some days we conquer chapters. Some days we just keep the chain alive.","A 20-minute session on a bad day beats a perfect plan on paper.","You are not behind. You are building a foundation most people never start.","Every tick is a tiny promise kept to yourself and to each other.","Somewhere around month 23 you'll smile at how hard month 1 felt.","Wrong answers today are right answers on exam day.","Future Yashu & Bhavi will be VERY happy that present Yashu & Bhavi started early. 💞","Your future, your city, your life: it all starts with today's page.","Consistency looks boring outside and magical inside."];
+var LOVE={
+ today:"Two people. Two paths. One study table. 💞",
+ days:"Every tile you fill is a little love letter to your future selves. 💌",
+ syl:"The whole syllabus is just a lot of small days stacked together. 🧱",
+ prog:"We don't race. We celebrate each other. 🥂",
+ buddy:"Ask anything, big or tiny. No question is silly here. 🤍"
+};
+
+/* ================= HELPERS ================= */
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function pad(n){return String(n).padStart(2,'0')}
+function ds(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
+function parseD(s){var a=s.split('-').map(Number);return new Date(a[0],a[1]-1,a[2])}
+function num(v){return typeof v==='number'&&isFinite(v)?v:0}
+function other(p){return p==='yashu'?'bhavi':'yashu'}
+function clone(o){return JSON.parse(JSON.stringify(o))}
+function fmt(d){return d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'})}
+function rel(ts){
+  var m=Math.round((Date.now()-ts)/60000);
+  if(m<1)return 'just now';if(m<60)return m+' min ago';
+  var h=Math.round(m/60);if(h<24)return h+' hr ago';
+  var d=Math.round(h/24);return d+' day'+(d===1?'':'s')+' ago';
+}
+
+/* ================= STATE ================= */
+var LS='gd2.v1';
+var me=null,view='yashu',tab='today',theme='dark',monthSel=0,sylMode='own',openSyl={},moodShift=0;
+var cfg={start:null};
+var D={yashu:emptyDoc(),bhavi:emptyDoc()};
+var REP=null;
+var sync='connecting';
+var sheet=null,snackFn=null,MEMO={};
+var SYN={url:'',room:''},AIKEY='',synTimer=0,firstPull=true,IO=null;
+var REDUCED=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+function emptyDoc(){return {v:1,days:{},log:[]}}
+var ACTS={done:1,carry:1,drop:1,clear:1};
+function sanitizeDoc(r){
+  var o=emptyDoc();if(!r||typeof r!=='object')return o;
+  var d=(r.days&&typeof r.days==='object')?r.days:{};
+  Object.keys(d).forEach(function(k){
+    var n=parseInt(k,10);if(!(n>=1&&n<=730)||String(n)!==k)return;
+    var e=d[k];if(!e||typeof e!=='object')return;
+    var c={u:num(e.u)};
+    if(e.s==='done'||e.s==='carry'||e.s==='drop')c.s=e.s;
+    if(typeof e.n==='string')c.n=e.n.slice(0,140);
+    if(typeof e.m==='string'&&MOODKEYS.indexOf(e.m)>=0)c.m=e.m;
+    var mm=num(e.min);if(mm>=0&&mm<=600)c.min=mm;
+    if(e.late)c.late=1;
+    o.days[k]=c;
+  });
+  if(Array.isArray(r.log)){
+    r.log.slice(0,40).forEach(function(l){
+      if(!l||typeof l!=='object'||!ACTS[l.a])return;
+      var dd=parseInt(l.d,10);if(!(dd>=1&&dd<=730))return;
+      o.log.push({t:num(l.t),d:dd,a:l.a,x:typeof l.x==='string'?l.x.slice(0,80):''});
+    });
+  }
+  return o;
+}
+function mergeDocs(a,b){
+  var o=emptyDoc(),ka=a.days,kb=b.days;
+  Object.keys(ka).concat(Object.keys(kb)).forEach(function(k){
+    var x=ka[k],y=kb[k];
+    o.days[k]=!x?y:(!y?x:(num(y.u)>=num(x.u)?y:x));
+  });
+  var seen={},all=a.log.concat(b.log).sort(function(p,q){return q.t-p.t});
+  all.forEach(function(l){var key=l.t+':'+l.d+':'+l.a;if(!seen[key]&&o.log.length<40){seen[key]=1;o.log.push(l)}});
+  return o;
+}
+function loadLocal(){
+  try{
+    var r=JSON.parse(localStorage.getItem(LS)||'null');
+    if(r&&typeof r==='object'){
+      if(r.me==='yashu'||r.me==='bhavi'){me=r.me;view=r.me}
+      if(r.theme==='light'||r.theme==='dark')theme=r.theme;
+      if(r.cfg&&typeof r.cfg.start==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(r.cfg.start))cfg.start=r.cfg.start;
+      if(r.D){D.yashu=sanitizeDoc(r.D.yashu);D.bhavi=sanitizeDoc(r.D.bhavi)}
+      if(r.cfg&&r.cfg.skip)cfg.skip=1;
+      if(r.syn&&okUrl(r.syn.url)&&okRoom(r.syn.room))SYN={url:normUrl(r.syn.url),room:r.syn.room};
+      if(typeof r.key==='string'&&r.key.length<300)AIKEY=r.key;
+      if(r.rep&&typeof r.rep.text==='string')REP={t:num(r.rep.t),by:r.rep.by==='bhavi'?'bhavi':'yashu',text:r.rep.text.slice(0,1500)};
+    }
+  }catch(e){}
+}
+function persist(){try{localStorage.setItem(LS,JSON.stringify({me:me,theme:theme,cfg:cfg,D:D,rep:REP,syn:SYN,key:AIKEY}))}catch(e){}}
+
+/* ================= PLAN ENGINE ================= */
+function startStr(){return cfg.start||ds(new Date())}
+function dateOf(n){var d=parseD(startStr());d.setDate(d.getDate()+n-1);return d}
+function todayNo(){var t=new Date();t.setHours(0,0,0,0);return Math.round((t-parseD(startStr()))/864e5)+1}
+function clampDay(t){return Math.max(1,Math.min(730,t))}
+function monthOf(n){return n>720?24:Math.floor((n-1)/30)}
+function dayInMonth(n){return ((n-1)%30)+1}
+function dayTask(p,n){
+  var k=startStr()+'|'+p+'|'+n;
+  if(!MEMO[k])MEMO[k]=buildTask(p,n);
+  return MEMO[k];
+}
+function buildTask(p,n){
+  if(n>720)return {type:'B',emoji:'🎁',title:'Buffer day',sub:'Catch up on carried-over days, revise a red topic, or simply rest. You earned it.',tag:'Bonus',mins:60,common:false};
+  var mi=monthOf(n),dm=dayInMonth(n),M=MONTHS[mi];
+  if(dm===30)return {type:'M',emoji:'🏁',title:M.test,sub:'Month-end test. Attempt it, then review your mistakes for at least as long as the test took.',tag:MILE[mi]?'Milestone':'Month test',mins:60,common:true};
+  var wd=dateOf(n).getDay();
+  var type=(wd===1||wd===3)?'C':((wd===2||wd===4)?'O':(wd===5?'G':(wd===6?'D':'T')));
+  if(type==='G')return {type:'G',emoji:'🧠',title:'GA + review',sub:"15 aptitude / GA questions, then review this week's mistakes.",tag:'Together',mins:60,common:true};
+  if(type==='T')return {type:'T',emoji:'🧪',title:'Weekly quiz + review',sub:"20–30 objective questions on this week's topics. Then review every mistake with codes C, F, S, T.",tag:'Test day',mins:60,common:true};
+  var grp=type==='C'?'C':'O';
+  var list=type==='C'?M.tog:(p==='yashu'?M.cs:M.ce);
+  var idx=Math.min(list.length-1,Math.floor((dm-1)*list.length/30));
+  var sess=0,base=mi*30;
+  for(var x=1;x<=dm;x++){
+    var w=dateOf(base+x).getDay(),g2=(w===1||w===3)?'C':((w===2||w===4||w===6)?'O':'');
+    if(g2!==grp)continue;
+    if(Math.min(list.length-1,Math.floor((x-1)*list.length/30))===idx)sess++;
+  }
+  var sub=(type==='C'?'Together topic (Maths / Aptitude).':(type==='D'?'Deep work on your own subject.':'Your own subject: '+PEOPLE[p].track+'.'))+(sess>1?' Session '+sess+' of this topic.':'');
+  return {type:type,emoji:type==='C'?'🤝':(type==='D'?'🔥':PEOPLE[p].emoji),title:list[idx],sub:sub,tag:type==='C'?'Together':(type==='D'?'Deep work':'Own subject'),mins:60,common:type==='C',idx:idx,grp:grp,mi:mi};
+}
+function ent(p,n){return D[p].days[n]||{}}
+function stats(p){
+  var days=D[p].days,keys=Object.keys(days),done=0,mins=0,carry=[],drop=0;
+  keys.forEach(function(k){var e=days[k];if(e.s==='done'){done++;mins+=(e.min||60)}else if(e.s==='carry')carry.push(+k);else if(e.s==='drop')drop++});
+  carry.sort(function(a,b){return a-b});
+  var tt=clampDay(todayNo());
+  var alive=function(n){var e=days[n];return !!(e&&(e.s==='done'||e.s==='carry'))};
+  var c=0,n=alive(tt)?tt:tt-1;
+  while(n>=1&&alive(n)){c++;n--}
+  var best=0,run=0,prev=-9;
+  keys.map(Number).sort(function(a,b){return a-b}).forEach(function(k){if(alive(k)){run=(prev===k-1)?run+1:1;if(run>best)best=run;prev=k}});
+  return {done:done,hours:Math.round(mins/6)/10,carry:carry,drop:drop,chain:c,best:best};
+}
+function monthDone(p,mi){
+  var a=mi===24?721:mi*30+1,b=mi===24?730:mi*30+30,c=0;
+  for(var n=a;n<=b;n++)if(ent(p,n).s==='done')c++;
+  return c;
+}
+
+/* ================= SYNC (free Firebase Realtime Database over plain REST) ================= */
+function normUrl(u){return String(u||'').trim().replace(/\/+$/,'').replace(/\.json$/,'')}
+function okUrl(u){return /^https:\/\/[A-Za-z0-9.-]+$/.test(normUrl(u))}
+function okRoom(r){return /^[A-Za-z0-9_-]{6,40}$/.test(String(r||''))}
+function randRoom(){var c='abcdefghjkmnpqrstuvwxyz23456789',o='',a=new Uint8Array(14);try{crypto.getRandomValues(a)}catch(e){for(var i=0;i<14;i++)a[i]=Math.floor(Math.random()*256)}for(var k=0;k<14;k++)o+=c.charAt(a[k]%c.length);return o}
+function synOn(){return !!(SYN.url&&SYN.room)}
+function base(){return SYN.url+'/rooms/'+SYN.room}
+async function jget(path){var r=await fetch(base()+path+'.json',{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}
+async function jput(path,body){var r=await fetch(base()+path+'.json',{method:'PUT',body:JSON.stringify(body)});if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}
+function toRemote(doc){var o={v:1,days:{},log:doc.log.slice(0,40)};Object.keys(doc.days).forEach(function(k){o.days['d'+k]=doc.days[k]});return o}
+function fromRemote(r){
+  if(!r||typeof r!=='object')return emptyDoc();
+  var d={},rd=(r.days&&typeof r.days==='object')?r.days:{};
+  Object.keys(rd).forEach(function(k){if(k.charAt(0)==='d')d[k.slice(1)]=rd[k]});
+  var lg=Array.isArray(r.log)?r.log:((r.log&&typeof r.log==='object')?Object.keys(r.log).map(function(k){return r.log[k]}):[]);
+  return sanitizeDoc({days:d,log:lg});
+}
+function sameDays(a,b){
+  var ka=Object.keys(a),kb=Object.keys(b);if(ka.length!==kb.length)return false;
+  for(var i=0;i<ka.length;i++){var x=a[ka[i]],y=b[ka[i]];if(!y||num(x.u)!==num(y.u)||x.s!==y.s)return false}
+  return true;
+}
+function setSync(s){sync=s;renderTop()}
+var saveT=0,saving=false,dirty=false,retryT=0;
+function markDirty(){dirty=true;persist();clearTimeout(saveT);saveT=setTimeout(flush,700);setSync(synOn()?'saving':'local')}
+function flush(){
+  if(!synOn()){setSync('local');return}
+  if(saving||!me)return;
+  saving=true;
+  (async function(){
+    try{
+      while(dirty){
+        dirty=false;
+        var r=await jget('/people/'+me);
+        D[me]=mergeDocs(D[me],fromRemote(r));persist();
+        await jput('/people/'+me,toRemote(D[me]));
+      }
+      setSync('saved');
+    }catch(e){dirty=true;setSync('error');clearTimeout(retryT);retryT=setTimeout(flush,10000)}
+    finally{saving=false}
+  })();
+}
+function writeCfg(){persist();if(synOn()&&cfg.start)jput('/config',{start:cfg.start,by:me||'',u:Date.now()}).catch(function(){})}
+async function pull(){
+  if(!synOn())return;
+  try{
+    var all=(await jget(''))||{},changed=false,needPush=false,c=all.config;
+    if(c&&typeof c.start==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(c.start)){if(c.start!==cfg.start){cfg.start=c.start;MEMO={};changed=true}}
+    else if(cfg.start)writeCfg();
+    ['yashu','bhavi'].forEach(function(p){
+      var remote=fromRemote(all.people&&all.people[p]);
+      var before=D[p].log.length?D[p].log[0].t:0;
+      var merged=mergeDocs(D[p],remote);
+      if(!sameDays(merged.days,D[p].days))changed=true;
+      if(p===me&&!sameDays(merged.days,remote.days))needPush=true;
+      D[p]=merged;
+      var after=merged.log.length?merged.log[0].t:0;
+      if(p!==me&&me&&!firstPull&&after>before&&merged.log[0].a==='done')snack('💞 '+PEOPLE[p].name+' just finished Day '+merged.log[0].d+'!');
+    });
+    var rp=all.report;
+    if(rp&&typeof rp.text==='string'&&num(rp.t)>(REP?REP.t:0)){REP={t:num(rp.t),by:rp.by==='bhavi'?'bhavi':'yashu',text:rp.text.slice(0,1500)};changed=true}
+    firstPull=false;persist();
+    if(!dirty&&!saving)setSync('saved');
+    if(changed)softRender();
+    if(needPush)markDirty();
+  }catch(e){setSync(dirty?'error':'offline')}
+}
+function startSync(){
+  clearInterval(synTimer);
+  if(!synOn()){setSync('local');return}
+  firstPull=true;setSync('saving');pull();
+  synTimer=setInterval(function(){if(!document.hidden)pull()},12000);
+}
+async function testConn(url,room){
+  var u=normUrl(url),b=u+'/rooms/'+room+'/ping.json',t=String(Date.now());
+  try{
+    var r=await fetch(b,{method:'PUT',body:JSON.stringify({t:t})});
+    if(r.status===401||r.status===403)return {ok:false,msg:'The database refused access. Paste the rules from SETUP step 3 and press Publish.'};
+    if(!r.ok)return {ok:false,msg:'The database answered '+r.status+'. Double-check the URL.'};
+    var g=await (await fetch(b,{cache:'no-store'})).json();
+    if(!g||g.t!==t)return {ok:false,msg:'Wrote but could not read it back. Re-check the rules.'};
+    return {ok:true};
+  }catch(e){return {ok:false,msg:'Could not reach that address. It should look like https://your-app-default-rtdb.firebaseio.com'}}
+}
+function readHash(){
+  try{
+    var h=(location.hash||'').replace(/^#/,'');if(!h)return;
+    var q=new URLSearchParams(h),u=q.get('db'),r=q.get('room');
+    if(u&&r&&okUrl(u)&&okRoom(r)){SYN={url:normUrl(u),room:r};persist();if(history&&history.replaceState)history.replaceState(null,'',location.pathname+location.search)}
+  }catch(e){}
+}
+
+/* ================= ACTIONS ================= */
+function logEvent(p,n,a,x){
+  D[p].log.unshift({t:Date.now(),d:n,a:a,x:String(x||'').slice(0,80)});
+  if(D[p].log.length>40)D[p].log.length=40;
+}
+function commit(p,n,patch,act){
+  var e=Object.assign({},D[p].days[n]||{},patch,{u:Date.now()});
+  D[p].days[n]=e;
+  logEvent(p,n,act,dayTask(p,n).title);
+  markDirty();
+}
+function setDone(n,o){
+  var e=ent(me,n),late=todayNo()>n;
+  var patch={s:'done',min:o.min||60,n:(o.note||'').slice(0,140)};
+  if(o.mood)patch.m=o.mood;
+  if(late||e.s==='carry')patch.late=1;else patch.late=0;
+  commit(me,n,patch,'done');
+  var st=stats(me);
+  burst(st.done%10===0?140:50);
+  var msgs=['Nice one! ✨','Small step, big result 🌱','That is the habit talking 🔥','Look at you go 🚀','Tick! 💙💖'];
+  var m=msgs[st.done%msgs.length];
+  snack(m+' Day '+n+' done.','📊 Report',function(){go('buddy');sendChat('Give me a short progress report for both of us.','report')});
+}
+function setCarry(n,o){
+  var patch={s:'carry',n:(o.note||'').slice(0,140),late:0};
+  if(o.mood)patch.m=o.mood;
+  commit(me,n,patch,'carry');
+  snack('Moved to the next day 🌙 with your note. No guilt.');
+}
+function setDrop(n,o){commit(me,n,{s:'drop',n:(o.note||(ent(me,n).n||'')).slice(0,140),late:0},'drop');snack('Let it go 🍃 That is okay.')}
+function clearDay(n){
+  var e=ent(me,n);
+  D[me].days[n]=Object.assign({},e,{s:undefined,u:Date.now()});
+  delete D[me].days[n].s;
+  logEvent(me,n,'clear',dayTask(me,n).title);
+  markDirty();
+}
+
+/* ================= CONFETTI + SNACK ================= */
+var cv=$('confetti'),cx=cv.getContext('2d'),parts=[],raf=0;
+function burst(k){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  cv.width=innerWidth;cv.height=innerHeight;
+  var cols=['#ff8fab','#f5c980','#7fe3b0','#a9b8ff','#e05a7f','#ffffff'];
+  for(var i=0;i<k;i++)parts.push({x:innerWidth/2+(Math.random()-.5)*innerWidth*.4,y:innerHeight*.45,vx:(Math.random()-.5)*12,vy:Math.random()*-12-3,g:.3+Math.random()*.12,s:5+Math.random()*6,r:Math.random()*6,vr:(Math.random()-.5)*.4,c:cols[i%cols.length],l:1});
+  if(!raf)loop();
+}
+function loop(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  parts=parts.filter(function(p){return p.y<cv.height+30&&p.l>0});
+  parts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=p.g;p.vx*=.99;p.r+=p.vr;p.l-=.007;cx.save();cx.globalAlpha=Math.max(p.l,0);cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.fillRect(-p.s/2,-p.s/3,p.s,p.s*.6);cx.restore()});
+  if(parts.length)raf=requestAnimationFrame(loop);else{raf=0;cx.clearRect(0,0,cv.width,cv.height)}
+}
+var snackT=0;
+function snack(msg,btn,fn){
+  var s=$('snack');snackFn=fn||null;
+  s.innerHTML='<span>'+esc(msg)+'</span>'+(btn?'<button data-act="snackbtn">'+esc(btn)+'</button>':'');
+  s.classList.add('show');clearTimeout(snackT);
+  snackT=setTimeout(function(){s.classList.remove('show')},btn?6500:3400);
+}
+
+/* ================= RENDER: SHELL ================= */
+var TABS=[['today','🏠','Today'],['days','🗓️','Days'],['syl','📚','Syllabus'],['progress','📊','Progress'],['buddy','🤖','Buddy']];
+function initTop(){
+  $('top').innerHTML='<div class="hbar glass"><div class="brand"><span class="logo">💞</span><div><b>GATE Duo</b><small>24 months. 1 hr a day. Together.</small></div></div><span class="pill" id="syncPill"></span><button class="ico" data-act="settings" aria-label="Settings">⚙️</button></div><div class="seg glass p-yashu" id="seg" role="group" aria-label="Whose progress to view"><i class="ind"></i><button id="segy" data-act="who" data-p="yashu"></button><button id="segb" data-act="who" data-p="bhavi"></button></div>';
+}
+function renderTop(){
+  var pill=$('syncPill');if(!pill)return;
+  pill.textContent={connecting:'⏳ Connecting',saved:'☁️ Synced',saving:'💾 Saving',local:'📴 This device',offline:'📴 Offline',error:'⚠️ Will retry'}[sync]||'';
+  $('seg').className='seg glass p-'+view;
+  ['yashu','bhavi'].forEach(function(p){
+    var b=$(p==='yashu'?'segy':'segb');
+    b.className=view===p?'on':'';b.setAttribute('aria-pressed',String(view===p));
+    b.innerHTML='<b>'+PEOPLE[p].emoji+' '+PEOPLE[p].name+(me===p?' (you)':'')+'</b><small>'+PEOPLE[p].track+'</small>';
+  });
+}
+function initTabbar(){
+  $('tabbar').innerHTML='<i class="ind" id="tbind"></i>'+TABS.map(function(t){return '<button class="tb" id="tb_'+t[0]+'" data-act="tab" data-t="'+t[0]+'" aria-label="'+t[2]+'"><span>'+t[1]+'</span><b>'+t[2]+'</b></button>'}).join('');
+}
+function renderTabbar(){
+  var idx=0;
+  TABS.forEach(function(t,i){var b=$('tb_'+t[0]);if(!b)return;b.className='tb'+(tab===t[0]?' on':'');if(tab===t[0])idx=i});
+  var ind=$('tbind');if(ind)ind.style.transform='translateX(calc('+(idx*100)+'% + '+(idx*2)+'px))';
+}
+function go(t){tab=t;renderAll(false);window.scrollTo(0,0)}
+function decorate(animate){
+  var root=$('view');if(!root||!root.querySelectorAll)return;
+  var els=root.querySelectorAll('.card,.acc,.hello,.love,.tile,.jbi,.fi,.grow,.citem,.sub,.hero,.qbox');
+  var i=0;
+  for(var k=0;k<els.length;k++){
+    var el=els[k],isTile=el.classList.contains('tile');
+    el.classList.add('reveal');
+    el.style.setProperty('--d',(isTile?(i%30)*16:(i%6)*55)+'ms');
+    if(!animate||!IO)el.classList.add('in');else IO.observe(el);
+    i=isTile?i+1:i+1;
+  }
+}
+function renderAll(keepScroll){
+  var y=window.scrollY||0;
+  renderTop();renderTabbar();
+  var vw=$('view');
+  vw.innerHTML={today:viewToday,days:viewDays,syl:viewSyl,progress:viewProgress,buddy:viewBuddy}[tab]();
+  if(!keepScroll&&vw.classList&&!REDUCED){vw.classList.remove('enter');void vw.offsetWidth;vw.classList.add('enter')}
+  decorate(!keepScroll);
+  if(tab==='days'){var a=document.querySelector('.mchip.on');if(a&&a.scrollIntoView)a.scrollIntoView({inline:'center',block:'nearest'})}
+  if(keepScroll)window.scrollTo(0,y);
+  if(tab==='buddy')fillChat();
+}
+function countUp(el){
+  var raw=el.getAttribute('data-v'),v=parseFloat(raw);if(!isFinite(v)||REDUCED)return;
+  var dec=(String(raw).split('.')[1]||'').length,t0=null;
+  function step(ts){if(t0===null)t0=ts;var k=Math.min(1,(ts-t0)/850),e=1-Math.pow(1-k,3);el.textContent=(v*e).toFixed(dec);if(k<1)requestAnimationFrame(step);else el.textContent=v.toFixed(dec)}
+  el.textContent=(0).toFixed(dec);requestAnimationFrame(step);
+}
+var scrollTick=false;
+function onScroll(){
+  if(scrollTick)return;scrollTick=true;
+  requestAnimationFrame(function(){
+    scrollTick=false;
+    var y=window.scrollY||0,h=Math.max(1,(document.documentElement.scrollHeight||1)-(window.innerHeight||1));
+    var o=$('orbs');if(o&&o.style)o.style.setProperty('--sy',String(y));
+    var sp=$('sprog');if(sp&&sp.style)sp.style.transform='scaleX('+Math.max(0,Math.min(1,y/h)).toFixed(3)+')';
+    var tp=$('top');if(tp&&tp.classList){if(y>12)tp.classList.add('scrolled');else tp.classList.remove('scrolled')}
+  });
+}
+function initFx(){
+  if(window.IntersectionObserver){
+    IO=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting)return;
+        var t=e.target;t.classList.add('in');IO.unobserve(t);
+        var cs=t.querySelectorAll?t.querySelectorAll('.cu'):[];
+        for(var i=0;i<cs.length;i++)countUp(cs[i]);
+      });
+    },{threshold:.06,rootMargin:'0px 0px -4% 0px'});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  document.addEventListener('pointermove',function(ev){
+    var g=ev.target&&ev.target.closest?ev.target.closest('.glass'):null;if(!g)return;
+    var r=g.getBoundingClientRect();g.style.setProperty('--mx',(ev.clientX-r.left)+'px');g.style.setProperty('--my',(ev.clientY-r.top)+'px');
+  },{passive:true});
+  document.addEventListener('visibilitychange',function(){if(!document.hidden&&synOn())pull()});
+  window.addEventListener('online',function(){if(dirty)flush();pull()});
+}
+function softRender(){if(tab==='buddy'){renderTop();renderTabbar();return}renderAll(true)}
+function statusTxt(s){return s==='done'?'✅ Done':(s==='carry'?'➡️ Carried':(s==='drop'?'🍃 Let go':'⏳ Not yet'))}
+
+/* ================= VIEW: TODAY ================= */
+function greet(){var h=new Date().getHours();return h<5?'Late night':(h<12?'Good morning':(h<17?'Good afternoon':'Good evening'))}
+function pickQuote(){
+  var t=clampDay(todayNo()),mood=me?ent(me,t).m:null;
+  if(QUOTES.__fresh)return {q:QUOTES.__fresh,mood:mood};
+  if(mood&&QUOTES[mood]){var L=QUOTES[mood];return {q:L[(t+moodShift)%L.length],mood:mood}}
+  return {q:GENERAL[(t+moodShift)%GENERAL.length],mood:null};
+}
+function heroCard(t){
+  var e=Math.max(0,Math.min(730,t)),pct=e/730,a=stats('yashu'),b=stats('bhavi');
+  var mi=t>=1&&t<=730?monthOf(t):null;
+  var title=t<1?'Get ready 🚀':(t>730?'You did it! 🎓':(mi===24?'Bonus buffer days':'Month '+(mi+1)+' · '+PHASES[MONTHS[mi].ph].e+' '+PHASES[MONTHS[mi].ph].n));
+  var left=t<1?730:Math.max(0,730-t);
+  return '<section class="glass hero"><div class="sheen"></div><div class="hr"><svg viewBox="0 0 140 140" class="hring" style="--p:'+pct.toFixed(3)+'" aria-hidden="true"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8fab"/><stop offset="1" stop-color="#f5c980"/></linearGradient></defs><circle cx="70" cy="70" r="56" fill="none" stroke="var(--gborder)" stroke-width="11"/><circle class="pg" cx="70" cy="70" r="56" fill="none" stroke="url(#hg)" stroke-width="11" stroke-linecap="round" transform="rotate(-90 70 70)"/></svg><div class="hc2"><small>Day</small><b class="cu" data-v="'+e+'">'+e+'</b><small>of 730</small></div></div><div class="ht"><h2>'+title+'</h2><small>'+left+' days to go · about 1 hr a day</small><div class="mb y">💻 Yashu · '+a.done+' days<div class="bar"><i style="width:'+Math.round(a.done/730*100)+'%"></i></div></div><div class="mb b">🏗️ Bhavi · '+b.done+' days<div class="bar"><i style="width:'+Math.round(b.done/730*100)+'%"></i></div></div></div></section>';
+}
+function viewToday(){
+  var p=view,pe=PEOPLE[p],t=todayNo(),n=clampDay(t),isMe=p===me,task=dayTask(p,n),e=ent(p,n),d=dateOf(n);
+  var h='<div class="hello"><h1>'+greet()+(me?', '+PEOPLE[me].name:'')+' 👋</h1><p>'+esc(fmt(new Date()))+'. Just about an hour is plenty. Not mandatory, always welcome.</p></div>';
+  var chips='';
+  if(t<1)chips='<span class="pill">🚀 Starts in '+(1-t)+' day'+(1-t===1?'':'s')+' ('+esc(fmt(dateOf(1)))+')</span>';
+  else if(t>730)chips='<span class="pill">🎓 24 months complete!</span>';
+  else chips='<span class="pill">Day '+t+' of 730</span><span class="pill">'+(monthOf(t)===24?'🎁 Buffer days':'Month '+(monthOf(t)+1)+' · '+PHASES[MONTHS[monthOf(t)].ph].e+' '+PHASES[MONTHS[monthOf(t)].ph].n)+'</span>';
+  var st=stats(p);
+  chips+='<span class="pill">🔥 Chain '+st.chain+'</span>';
+  h+='<div class="daychips">'+chips+'</div>';
+  h+=heroCard(t);
+  // mission
+  h+='<section class="glass card mission" style="--pc:var(--'+p+')"><div class="mtop"><span class="big">'+task.emoji+'</span><div style="min-width:0"><small>'+(isMe?'Your mission':esc(pe.name)+'\'s mission')+(t<1?' (Day 1 preview)':'')+' · '+esc(fmt(d))+'</small><h2>'+esc(task.title)+'</h2><p class="lead">'+esc(task.sub)+'</p><div style="margin-top:6px"><span class="tag">'+esc(task.tag)+'</span><span class="tag">⏱️ about 1 hr</span></div></div></div>';
+  if(e.s)h+='<div class="banner'+(e.s==='carry'?' carry':'')+'">'+statusTxt(e.s)+(e.n?' · “'+esc(e.n)+'”':'')+'</div>';
+  if(isMe){
+    if(e.s==='done')h+='<div class="stack"><button class="btn" data-act="day" data-n="'+n+'">✏️ Edit details or undo</button></div>';
+    else h+='<div class="row2"><button class="btn pri" data-act="quickdone" data-n="'+n+'">✅ Mark done</button><button class="btn warn" data-act="day" data-n="'+n+'">➡️ Move to tomorrow</button></div><div class="stack"><button class="btn" data-act="day" data-n="'+n+'">✏️ Add time, mood or a note</button></div>';
+  }else h+='<div class="stack"><small>👀 You are viewing '+esc(pe.name)+'\'s progress (view only). Switch above to tick your own.</small></div>';
+  h+='</section>';
+  // glance
+  h+='<section class="glass card"><h2>Today at a glance</h2><div class="glance">';
+  ['yashu','bhavi'].forEach(function(q){
+    var qe=ent(q,n);
+    h+='<div class="grow"><span class="who">'+PEOPLE[q].emoji+'</span><div class="tx"><b>'+PEOPLE[q].name+'</b><small>'+esc(dayTask(q,n).title)+'</small></div><span class="st s-'+(qe.s||'')+'">'+statusTxt(qe.s)+'</span></div>';
+  });
+  h+='</div></section>';
+  // carried
+  var cl=stats(p).carry;
+  if(cl.length){
+    h+='<section class="glass card"><h2>➡️ Carried over</h2><p class="lead">No stress. These are waiting for a calm hour.</p><div class="carrylist">';
+    cl.slice(0,6).forEach(function(cn){
+      var ce=ent(p,cn);
+      h+='<div class="citem"><b>Day '+cn+': '+esc(dayTask(p,cn).title)+'</b><small>📝 '+esc(ce.n||'no note')+'</small>'+(isMe?'<div class="row2"><button class="btn ok" data-act="cdone" data-n="'+cn+'">✅ Done now</button><button class="btn" data-act="cdrop" data-n="'+cn+'">🍃 Let it go</button></div>':'')+'</div>';
+    });
+    if(cl.length>6)h+='<small>…and '+(cl.length-6)+' more in Progress.</small>';
+    h+='</div></section>';
+  }
+  // vibe
+  var q=pickQuote();
+  h+='<section class="glass card"><h2>How is your vibe today?</h2><p class="lead">'+(isMe?'Pick one. Your quote changes to match.':'Only you can set your own vibe.')+'</p><div class="chips">';
+  MOODS.forEach(function(m){h+='<button class="chip'+(q.mood===m[0]?' on':'')+'" data-act="mood" data-v="'+m[0]+'"'+(isMe?'':' disabled')+'>'+m[1]+' '+m[2]+'</button>'});
+  h+='</div><div class="qbox">“'+esc(q.q)+'”'+(q.mood==='low'?'<span class="qhint">If it feels heavier than a normal bad day, please talk to someone you trust.</span>':'')+'</div><div class="row2"><button class="btn" data-act="anotherq">✨ Another line</button>'+(AIKEY?'<button class="btn" data-act="buddyq">🤖 Fresh from Buddy</button>':'<span></span>')+'</div></section>';
+  h+='<div class="love">'+LOVE.today+'</div>';
+  return h;
+}
+
+/* ================= VIEW: DAYS ================= */
+function tile(p,n){
+  var e=ent(p,n),o=ent(other(p),n),t=dayTask(p,n),d=dateOf(n),tn=todayNo();
+  var cls='tile'+(e.s?' s-'+e.s:'')+(n===tn?' today':'')+(t.type==='M'?' mile':'');
+  var face=e.s==='done'?'✓':(e.s==='carry'?'➡️':(e.s==='drop'?'🍃':t.emoji));
+  return '<button class="'+cls+'" data-act="day" data-n="'+n+'" aria-label="Day '+n+', '+esc(fmt(d))+', '+esc(t.title)+', '+statusTxt(e.s)+'"><i class="dn">'+n+'</i><i class="te">'+face+'</i><i class="wd">'+'SMTWTFS'.charAt(d.getDay())+'</i>'+(o.s?'<i class="od o-'+o.s+'" style="--oc:var(--'+other(p)+')"></i>':'')+'</button>';
+}
+function viewDays(){
+  var p=view,t=todayNo(),cur=t<1?0:monthOf(Math.min(t,730));
+  var chips='';
+  for(var i=0;i<=24;i++)chips+='<button class="mchip'+(i===monthSel?' on':'')+(i===cur?' now':'')+'" data-act="month" data-i="'+i+'">'+(i===24?'🎁 Bonus':'M'+(i+1))+'</button>';
+  var a=monthSel===24?721:monthSel*30+1,cnt=monthSel===24?10:30;
+  var ph=monthSel===24?null:PHASES[MONTHS[monthSel].ph];
+  var mine=monthDone(p,monthSel),theirs=monthDone(other(p),monthSel);
+  var h='<section class="glass card"><h2>🗓️ '+(monthSel===24?'Bonus buffer days':'Month '+(monthSel+1)+' · '+ph.e+' '+ph.n)+'</h2><p class="lead">'+PEOPLE[p].emoji+' '+PEOPLE[p].name+': <b>'+mine+'/'+cnt+'</b> done &nbsp;·&nbsp; '+PEOPLE[other(p)].emoji+' '+PEOPLE[other(p)].name+': <b>'+theirs+'/'+cnt+'</b></p>';
+  if(monthSel<24)h+='<p class="lead">🏁 Day '+(monthSel*30+30)+': '+esc(MONTHS[monthSel].test)+'</p>';
+  h+='<div class="mstrip" role="group" aria-label="Choose a month">'+chips+'</div><div class="grid">';
+  for(var k=0;k<cnt;k++)h+=tile(p,a+k);
+  h+='</div><div class="legend"><span><i class="sw" style="background:var(--okBg);border-color:var(--ok)"></i>Done</span><span><i class="sw" style="background:var(--carryBg);border-color:var(--carry)"></i>Carried</span><span><i class="sw" style="background:var(--dropBg);border-color:var(--drop)"></i>Let go</span><span>🏁 test</span><span>🧪 quiz</span><span>🧠 GA</span><span>● partner done</span></div></section>';
+  h+='<div class="love">'+LOVE.days+'</div>';
+  return h;
+}
+
+/* ================= VIEW: SYLLABUS ================= */
+function subRange(i,L){return [Math.ceil(i*30/L)+1,Math.min(29,Math.ceil((i+1)*30/L))]}
+function viewSyl(){
+  var p=view,own=p==='yashu'?'cs':'ce',key=sylMode==='tog'?'tog':own,g=sylMode==='tog'?'C':'O';
+  var h='<section class="glass card"><h2>📚 Full syllabus</h2><p class="lead">Month by month, day by day. Tap a topic to jump to its first day.</p><div class="chips" style="margin-top:8px"><button class="chip'+(sylMode==='tog'?' on':'')+'" data-act="sylmode" data-v="tog">🤝 Together</button><button class="chip'+(sylMode==='own'?' on':'')+'" data-act="sylmode" data-v="own">'+PEOPLE[p].emoji+' '+PEOPLE[p].track+'</button></div></section>';
+  for(var mi=0;mi<24;mi++){
+    var M=MONTHS[mi],list=M[key],open=!!openSyl[mi],base=mi*30,tot=0,dn=0,body='';
+    for(var i=0;i<list.length;i++){
+      var r=subRange(i,list.length),c=0,d0=0,first=0;
+      for(var dm=r[0];dm<=r[1];dm++){
+        var n=base+dm,tk=dayTask(p,n);
+        if(tk.idx===i&&tk.grp===g){c++;if(!first)first=n;if(ent(p,n).s==='done')d0++}
+      }
+      tot+=c;dn+=d0;
+      if(open)body+='<button class="sub" data-act="day" data-n="'+(first||base+r[0])+'"><span class="sn">'+esc(list[i])+'<small>Days '+(base+r[0])+'–'+(base+r[1])+' · '+d0+'/'+c+' sessions</small></span>'+(c>0&&d0===c?'<span class="ok">✓</span>':'')+'</button>';
+    }
+    var pct=tot?Math.round(dn/tot*100):0;
+    h+='<section class="glass acc"><button class="ah" data-act="syl" data-i="'+mi+'" aria-expanded="'+open+'"><div style="min-width:0;flex:1"><span class="mn">Month '+(mi+1)+' '+PHASES[M.ph].e+'</span><div class="ms">'+esc(list[0])+' … '+esc(list[list.length-1])+'</div><div class="bar" style="margin-top:8px"><i style="width:'+pct+'%"></i></div></div><span class="ch">'+(open?'▾':'▸')+'</span></button>';
+    if(open)h+='<div class="abody">'+body+'<div class="testline">🏁 Day '+(base+30)+': '+esc(M.test)+(MILE[mi]?' (milestone)':'')+'</div></div>';
+    h+='</section>';
+  }
+  h+='<section class="glass acc"><button class="ah" data-act="day" data-n="721"><div><span class="mn">🎁 Days 721–730</span><div class="ms">Bonus buffer: catch up, revise red topics, rest.</div></div></button></section>';
+  h+='<div class="love">'+LOVE.syl+'</div>';
+  return h;
+}
+
+/* ================= VIEW: PROGRESS ================= */
+function ring(pct,c){
+  var C=2*Math.PI*22,dd=(C*pct/100).toFixed(1);
+  return '<svg class="rg" width="60" height="60" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="22" fill="none" stroke="var(--gborder)" stroke-width="7"/><circle cx="30" cy="30" r="22" fill="none" stroke="'+c+'" stroke-width="7" stroke-linecap="round" transform="rotate(-90 30 30)" stroke-dasharray="'+dd+' '+C.toFixed(1)+'"/><text x="30" y="34" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">'+pct+'%</text></svg>';
+}
+function pcard(p){
+  var st=stats(p),pe=PEOPLE[p],t=Math.max(0,Math.min(730,todayNo())),pct=Math.round(st.done/730*100);
+  var cons=t?Math.round(st.done/t*100):0;
+  return '<section class="glass card pc" style="--pc:var(--'+p+')"><div class="pch"><span class="av">'+pe.emoji+'</span><div><b>'+pe.name+'</b><small>'+pe.track+'</small></div>'+ring(pct,'var(--'+p+')')+'</div><div class="kpis"><div><b><span class="cu" data-v="'+st.done+'">'+st.done+'</span></b><small>days done</small></div><div><b><span class="cu" data-v="'+st.hours+'">'+st.hours+'</span></b><small>hours</small></div><div><b>🔥 <span class="cu" data-v="'+st.chain+'">'+st.chain+'</span></b><small>chain</small></div><div><b><span class="cu" data-v="'+st.carry.length+'">'+st.carry.length+'</span></b><small>carried</small></div></div><p class="lead" style="margin-top:10px">Best chain: '+st.best+' days · '+cons+'% of days so far. Rest days are allowed. 💛</p></section>';
+}
+function heat(p){
+  var t=todayNo(),h='<div class="heat" aria-label="Last 42 days">';
+  if(t<1)return '<small>Your first days will appear here.</small>';
+  var end=Math.min(730,t),a=Math.max(1,end-41);
+  for(var n=a;n<=end;n++){var e=ent(p,n);h+='<i class="hc'+(e.s?' s-'+e.s:'')+'" title="Day '+n+'"></i>'}
+  return h+'</div>';
+}
+function viewProgress(){
+  var a=stats('yashu'),b=stats('bhavi');
+  var h='<div class="hello"><h1>Our progress 📊</h1><p>Together so far: <b>'+(Math.round((a.hours+b.hours)*10)/10)+' hours</b> and <b>'+(a.done+b.done)+' study days</b>. 💞</p></div>';
+  h+=pcard('yashu')+pcard('bhavi');
+  h+='<section class="glass card"><h2>Last 6 weeks</h2><small>Green done · amber carried · grey let go</small><p class="lead" style="margin-top:8px">'+PEOPLE.yashu.emoji+' Yashu</p>'+heat('yashu')+'<p class="lead" style="margin-top:12px">'+PEOPLE.bhavi.emoji+' Bhavi</p>'+heat('bhavi')+'</section>';
+  h+='<section class="glass card"><h2>Month by month</h2><small><span style="color:var(--yashu)">■</span> Yashu &nbsp; <span style="color:var(--bhavi)">■</span> Bhavi</small><div class="jb">';
+  for(var i=0;i<25;i++){
+    var c=i===24?10:30,y=monthDone('yashu',i),bb=monthDone('bhavi',i);
+    h+='<div class="jbi">'+(i===24?'🎁 Bonus':'M'+(i+1))+' <span style="float:right;color:var(--muted)">'+y+' | '+bb+'</span><div class="bar"><i style="width:'+Math.round(y/c*100)+'%"></i></div><div class="bar b"><i style="width:'+Math.round(bb/c*100)+'%"></i></div></div>';
+  }
+  h+='</div></section>';
+  // carried notes
+  var cn=[];['yashu','bhavi'].forEach(function(p){stats(p).carry.forEach(function(n){cn.push([p,n])})});
+  h+='<section class="glass card"><h2>➡️ Carried over and why</h2>';
+  if(!cn.length)h+='<p class="lead">Nothing waiting. Lovely. ✨</p>';
+  else{h+='<div class="feed">';cn.slice(0,10).forEach(function(x){var e=ent(x[0],x[1]);h+='<div class="fi"><b>'+PEOPLE[x[0]].emoji+' '+PEOPLE[x[0]].name+' · Day '+x[1]+'</b>: '+esc(dayTask(x[0],x[1]).title)+'<small>📝 '+esc(e.n||'no note')+'</small></div>'});h+='</div>'}
+  h+='</section>';
+  // feed
+  var all=[];['yashu','bhavi'].forEach(function(p){D[p].log.forEach(function(l){all.push({p:p,l:l})})});
+  all.sort(function(x,y){return y.l.t-x.l.t});
+  h+='<section class="glass card"><h2>Recent activity</h2>';
+  if(!all.length)h+='<p class="lead">Nothing yet. Your first tick will show up here. 🌱</p>';
+  else{
+    h+='<div class="feed">';
+    all.slice(0,12).forEach(function(x){
+      var l=x.l,txt={done:'✅ finished',carry:'➡️ moved',drop:'🍃 let go of',clear:'↩️ cleared'}[l.a];
+      h+='<div class="fi"><b>'+PEOPLE[x.p].emoji+' '+PEOPLE[x.p].name+'</b> '+txt+' Day '+l.d+(l.x?': '+esc(l.x):'')+'<small>'+rel(l.t)+'</small></div>';
+    });
+    h+='</div>';
+  }
+  h+='</section>';
+  h+='<section class="glass card"><h2>🤖 Latest Buddy report</h2>'+(REP?'<small>'+PEOPLE[REP.by].name+' asked · '+rel(REP.t)+'</small><div class="report" style="margin-top:8px">'+esc(REP.text)+'</div>':'<p class="lead">No report yet. Ask Buddy for one in the Buddy tab.</p>')+'</section>';
+  h+='<div class="love">'+LOVE.prog+'</div>';
+  return h;
+}
+
+/* ================= BUDDY (works free; optional Claude key unlocks free chat) ================= */
+var chat=[],busy=false;
+function fmtMsg(t){return esc(t).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\n/g,'<br>')}
+function nm(p){return PEOPLE[p].name}
+function viewBuddy(){
+  var h='<div class="hello"><h1>Your Buddy 🤖</h1><p>'+(AIKEY?'Smart mode is ON. Ask me anything about your prep, or tap a quick button.':'Simple mode: I read both trackers and answer the quick buttons. Add a Claude API key in ⚙️ Settings to chat about anything and get real quizzes.')+'</p></div>';
+  h+='<div class="chips" style="margin-top:12px">'+
+   '<button class="chip" data-act="ask" data-k="report">📊 Progress report</button>'+
+   '<button class="chip" data-act="ask" data-k="quiz">🧠 Quiz me on today</button>'+
+   '<button class="chip" data-act="ask" data-k="week">📅 Plan my week</button>'+
+   '<button class="chip" data-act="ask" data-k="partner">💞 How is '+nm(other(me||'yashu'))+'?</button>'+
+   '<button class="chip" data-act="ask" data-k="low">🥺 Feeling low</button></div>';
+  h+='<div class="chat" id="chat" aria-live="polite"></div>';
+  h+='<div class="composer glass"><textarea id="chatIn" data-inp="chat" rows="1" placeholder="Ask Buddy anything…" aria-label="Message Buddy"></textarea><button class="send" data-act="send" aria-label="Send">➤</button></div>';
+  h+='<div class="love">'+LOVE.buddy+'</div>';
+  return h;
+}
+function fillChat(){
+  var c=$('chat');if(!c)return;
+  var h='<div class="msg b">Hey '+esc(me?nm(me):'there')+'! 👋 I can see both of your trackers. Tap a button above or type to me.</div>';
+  chat.forEach(function(m,i){h+='<div class="msg '+m.r+'" id="m'+i+'">'+fmtMsg(m.t)+'</div>'});
+  c.innerHTML=h;
+}
+function em(s){return s==='done'?'✅':(s==='carry'?'➡️':(s==='drop'?'🍃':'⬜'))}
+function last7(p,n){var a=[];for(var k=6;k>=0;k--){var d=n-k;if(d>=1)a.push(em(ent(p,d).s))}return a.join('')}
+function snapData(){
+  var t=todayNo(),n=clampDay(t),o={today:{day:t,date:ds(dateOf(n)),month:monthOf(n)+1,phase:monthOf(n)<24?PHASES[MONTHS[monthOf(n)].ph].n:'Buffer'},asking:me?nm(me):'unknown',people:{}};
+  ['yashu','bhavi'].forEach(function(p){
+    var st=stats(p),l7=[];
+    for(var k=6;k>=0;k--){var dn=n-k;if(dn>=1)l7.push(ent(p,dn).s||'none')}
+    o.people[nm(p)]={track:PEOPLE[p].track,daysDone:st.done,hours:st.hours,chain:st.chain,bestChain:st.best,last7Days:l7,todayStatus:ent(p,n).s||'not yet',todayTask:dayTask(p,n).title,
+      carriedOver:st.carry.slice(0,5).map(function(c){return {day:c,task:dayTask(p,c).title,note:ent(p,c).n||''}})};
+  });
+  return o;
+}
+function localReport(){
+  var n=clampDay(todayNo()),a=stats('yashu'),b=stats('bhavi'),mine=me||'yashu';
+  var t='Progress snapshot 📊 (Day '+n+')\n\n💻 Yashu: '+a.done+' days, '+a.hours+' hrs, chain '+a.chain+' 🔥, '+a.carry.length+' carried\n'+last7('yashu',n)+'\n\n🏗️ Bhavi: '+b.done+' days, '+b.hours+' hrs, chain '+b.chain+' 🔥, '+b.carry.length+' carried\n'+last7('bhavi',n)+'\n\n';
+  var ms=stats(mine);
+  if(ms.carry.length)t+='You have '+ms.carry.length+' carried-over day'+(ms.carry.length===1?'':'s')+'. Pick the smallest one first, no rush. 💛';
+  else if(ent(mine,n).s==='done')t+='Today is done. Rest well, you earned it. 🌙';
+  else t+="Today's mission whenever you're ready: "+dayTask(mine,n).title+'. One calm hour is plenty. ✨';
+  var o=other(mine);if(ent(o,n).s==='done')t+='\n'+nm(o)+' already finished today. Send a 👏!';
+  return t;
+}
+function localPlan(){
+  var mine=me||'yashu',n=clampDay(todayNo()),st=stats(mine),t='Gentle plan 📅 (about 1 hr a day)\n\n';
+  if(st.carry.length)t+='When you have a calm hour: Day '+st.carry[0]+' ('+dayTask(mine,st.carry[0]).title+').\n\n';
+  for(var i=0;i<4;i++){var d=n+i;if(d>730)break;var k=dayTask(mine,d);t+=(i===0?'Today':'Day '+d)+' ('+fmt(dateOf(d))+'): '+k.emoji+' '+k.title+(ent(mine,d).s==='done'?' ✅':'')+'\n'}
+  return t+'\nMiss a day? Move it with a note. That still keeps your chain alive. 💛';
+}
+function localPartner(){
+  var mine=me||'yashu',o=other(mine),n=clampDay(todayNo()),s=stats(o);
+  var t=nm(o)+' so far: '+s.done+' days, '+s.hours+' hrs, chain '+s.chain+' 🔥\n'+last7(o,n)+'\n\n';
+  var e=ent(o,n).s;
+  t+=e==='done'?'Finished today ✨ ':(e==='carry'?'Moved today with a note. Be extra kind today. 💛 ':'Not started today yet, and that is fine. ');
+  return t+'\nSweet idea: send a quick "proud of you" text, or plan a study-then-chai break together. ☕';
+}
+function localLow(){
+  var L=QUOTES.low,n=clampDay(todayNo()),mine=me||'yashu';
+  return L[(n+moodShift)%L.length]+'\n\nTiniest step: open your book and read one page of “'+dayTask(mine,n).title+'”. Or move today to tomorrow with a note; that still counts. 💛\n\nIf it feels heavier than a normal bad day, please talk to someone you trust.';
+}
+function localQuiz(){
+  var n=clampDay(todayNo()),mine=me||'yashu';
+  return 'Teach-it-back on “'+dayTask(mine,n).title+'” 🧠\n\n1. Explain it in 3 lines to a friend.\n2. Write one formula, rule or key fact.\n3. Solve 1–2 PYQs, then tag any mistake C, F, S or T.\n\nWant Buddy to write real quiz questions? Add a Claude API key in ⚙️ Settings.';
+}
+function guess(t){
+  t=String(t).toLowerCase();
+  if(/report|progress|how am i|status/.test(t))return 'report';
+  if(/quiz|test me|question/.test(t))return 'quiz';
+  if(/plan|week|schedule|tomorrow/.test(t))return 'week';
+  if(/bhavi|yashu|partner|her |him /.test(t))return 'partner';
+  if(/tired|low|sad|stress|demotiv|anxious|overwhelm|give up|hopeless/.test(t))return 'low';
+  return 'default';
+}
+function localBuddy(kind){
+  return {report:localReport,quiz:localQuiz,week:localPlan,partner:localPartner,low:localLow}[kind]?({report:localReport,quiz:localQuiz,week:localPlan,partner:localPartner,low:localLow}[kind])():"I'm in simple mode right now 🤖. Tap a button above (report, quiz, plan, partner, low), or add a Claude API key in ⚙️ Settings to chat about anything.";
+}
+var PROMPTS={
+ report:"Give me a short, friendly progress report for both of us: what is going well, what is pending (carried-over days), and one small next step each.",
+ quiz:"Quiz me with 3 short GATE-style questions on today's topic for my track. Give the questions only; I will answer next.",
+ week:"Plan my next 7 days gently, using my carried-over days and today's status. Keep it realistic for about 1 hour a day.",
+ partner:"How is my partner doing lately? Keep it warm and specific, and suggest one sweet way I can cheer them on.",
+ low:"I'm feeling low today. Say something kind and help me pick the tiniest useful next step."
+};
+function rules(){
+  return "You are Buddy, a warm, upbeat, big-brother-style AI study buddy for Yashu (GATE CS + DA) and Bhavi (GATE Civil), a couple preparing for GATE over 24 months, about 1 hour a day, NOT mandatory. "+
+  "Monitor their progress using ONLY the LIVE DATA below; never invent progress. Be specific, honest and kind. Never guilt; missed days are fine and noted carry-overs count as caring. Do not compare them or make it a race; celebrate both. "+
+  "Keep replies short for a phone screen (under 120 words unless asked), plain text, a few emojis, no headings. If asked to explain or quiz on a topic, be accurate and GATE-focused. "+
+  "You are talking to "+(me?nm(me):'one of them')+". If someone seems truly distressed, be gentle and encourage talking to someone they trust.";
+}
+function toTurns(upto){
+  var out=[];
+  chat.slice(0,upto).forEach(function(m){
+    var role=m.r==='u'?'user':'assistant';
+    if(out.length&&out[out.length-1].role===role)out[out.length-1].content+='\n'+m.t;else out.push({role:role,content:m.t});
+  });
+  out=out.slice(-10);
+  while(out.length&&out[0].role!=='user')out.shift();
+  return out;
+}
+async function callClaude(system,messages,max){
+  var resp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'content-type':'application/json','x-api-key':AIKEY,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:max,system:system,messages:messages})});
+  var data=await resp.json();
+  if(!resp.ok){var er=new Error('api');er.status=resp.status;throw er}
+  return (data.content||[]).map(function(c){return c.text||''}).join('').trim()||'…';
+}
+function saveReport(text){
+  REP={t:Date.now(),by:me||'yashu',text:String(text).slice(0,1500)};persist();
+  if(synOn())jput('/report',REP).catch(function(){});
+}
+async function sendChat(text,kind){
+  text=String(text||'').trim();if(!text||busy)return;
+  chat.push({r:'u',t:text});
+  var k=kind==='chat'?guess(text):kind;
+  if(!AIKEY){
+    var reply=localBuddy(k);chat.push({r:'b',t:reply});
+    if(k==='report')saveReport(reply);
+    if(tab!=='buddy')go('buddy');else fillChat();
+    window.scrollTo(0,document.body.scrollHeight);return;
+  }
+  busy=true;chat.push({r:'b',t:'Thinking…'});var idx=chat.length-1;
+  if(tab!=='buddy')go('buddy');else fillChat();
+  window.scrollTo(0,document.body.scrollHeight);
+  try{
+    var out=await callClaude(rules()+'\n\nLIVE DATA:\n'+JSON.stringify(snapData()),toTurns(idx),600);
+    chat[idx].t=out;
+    if(k==='report')saveReport(out);
+  }catch(e){
+    var m2='Buddy hit a snag. Try again in a moment. 💛';
+    if(e&&e.status===401)m2='That API key was rejected. Check it in ⚙️ Settings. 🔑';
+    else if(e&&e.status===429)m2='Too many requests right now. Try again shortly. 🌙';
+    else if(e&&e.status===400)m2='The request was refused, often billing or credits on the key. Check your Anthropic account. 💳';
+    chat[idx].t=m2;
+  }finally{busy=false;fillChat();window.scrollTo(0,document.body.scrollHeight)}
+}
+async function freshQuote(){
+  if(!AIKEY||busy)return;
+  var mk=me?ent(me,clampDay(todayNo())).m:null,ml=mk?MOODS[MOODKEYS.indexOf(mk)][2]:'neutral';
+  snack('Buddy is writing you something… ✍️');
+  try{
+    var q=await callClaude('You write short, warm motivational lines.',[{role:'user',content:"Write ONE original, lovely motivational line (max 25 words, 1 emoji) for a GATE aspirant who feels '"+ml+"' today. Their partner studies with them. No quotation marks, no preface."}],90);
+    QUOTES.__fresh=q.replace(/^["“]|["”]$/g,'').slice(0,220);
+    if(tab==='today')renderAll(true);
+  }catch(e){snack('Buddy could not write one right now. Try again later.')}
+}
+
+/* ================= SHEETS ================= */
+function closeSheet(){sheet=null;$('sheetWrap').hidden=true;$('sheetWrap').innerHTML=''}
+function openSheet(n){
+  var p=view,e=ent(p,n);
+  sheet={n:n,p:p,min:e.min||60,mood:e.m||null,note:e.n||'',err:''};
+  drawSheet();
+}
+function drawSheet(){
+  var s=sheet;if(!s)return;
+  var p=s.p,n=s.n,task=dayTask(p,n),d=dateOf(n),e=ent(p,n),editable=(p===me),o=other(p),oe=ent(o,n);
+  var prev=$('sheetBody'),sc=prev?prev.scrollTop:0;
+  var h='<div class="sheet glass" id="sheetBody" role="dialog" aria-modal="true" aria-label="Day '+n+'"><div class="shead"><div style="min-width:0"><small>Day '+n+' · '+esc(fmt(d))+(n<=720?' · Month '+(monthOf(n)+1):'')+'</small><h2>'+task.emoji+' '+esc(task.title)+'</h2></div><button class="x" data-act="closesheet" aria-label="Close">✕</button></div>';
+  h+='<p class="lead" style="margin-top:6px">'+esc(task.sub)+'</p><div><span class="tag">'+esc(task.tag)+'</span><span class="tag">⏱️ about 1 hr</span></div>';
+  h+='<div class="glance"><div class="grow"><span class="who">'+PEOPLE[p].emoji+'</span><div class="tx"><b>'+PEOPLE[p].name+'</b>'+(e.n?'<small>📝 '+esc(e.n)+'</small>':'<small>'+esc(PEOPLE[p].track)+'</small>')+'</div><span class="st s-'+(e.s||'')+'">'+statusTxt(e.s)+'</span></div>'+
+     '<div class="grow"><span class="who">'+PEOPLE[o].emoji+'</span><div class="tx"><b>'+PEOPLE[o].name+'</b>'+(oe.n?'<small>📝 '+esc(oe.n)+'</small>':'<small>'+esc(dayTask(o,n).title)+'</small>')+'</div><span class="st s-'+(oe.s||'')+'">'+statusTxt(oe.s)+'</span></div></div>';
+  if(!editable){
+    h+='<p class="lead" style="margin-top:12px">👀 View only. Switch to your own name at the top to tick this day.</p></div>';
+  }else{
+    h+='<span class="lbl">How long did you study?</span><div class="chips">';
+    [30,45,60,90].forEach(function(m){h+='<button class="chip'+(s.min===m?' on':'')+'" data-act="smin" data-v="'+m+'">'+(m===60?'1 hr':(m===90?'1.5 hr':m+' min'))+'</button>'});
+    h+='</div><span class="lbl">Vibe</span><div class="chips">';
+    MOODS.forEach(function(m){h+='<button class="chip'+(s.mood===m[0]?' on':'')+'" data-act="smood" data-v="'+m[0]+'">'+m[1]+'</button>'});
+    h+='</div><span class="lbl">Note <small>(needed if you move it to tomorrow)</small></span><div class="chips">';
+    ['Exams','Tired','Travel','Busy','Unwell','Family'].forEach(function(r){h+='<button class="chip" data-act="reason" data-v="'+r+'">'+r+'</button>'});
+    h+='</div><textarea class="field" id="sheetNote" data-inp="note" maxlength="140" placeholder="A quick note to future you…">'+esc(s.note)+'</textarea><div class="err" id="sheetErr">'+esc(s.err)+'</div><div class="stack">';
+    h+='<button class="btn pri" data-act="sdone">'+(e.s==='done'?'💾 Save changes':'✅ Mark done')+'</button>';
+    if(e.s!=='done'&&n<730)h+='<button class="btn warn" data-act="scarry">➡️ Move to next day</button>';
+    if(e.s!=='done'&&e.s!=='drop')h+='<button class="btn" data-act="sdrop">🍃 Let it go</button>';
+    if(e.s)h+='<button class="btn" data-act="sclear">↩️ Clear this day</button>';
+    h+='</div></div>';
+  }
+  var w=$('sheetWrap');
+  w.innerHTML=h;
+  w.setAttribute('data-act','closesheet');
+  w.hidden=false;
+  var nb=$('sheetBody');if(nb)nb.scrollTop=sc;
+}
+function drawOnboard(){
+  var needDate=!cfg.start;
+  var h='<div class="sheet glass" id="sheetBody" role="dialog" aria-modal="true" aria-label="Welcome"><h2>Welcome, GATE Duo 💞</h2><p class="lead">24 months. About 1 hour a day. Not mandatory. Always together.</p><span class="lbl">Who is studying on this device?</span><div class="big2"><button data-act="iam" data-p="yashu">💻 I\'m Yashu<small>GATE CS + DA</small></button><button data-act="iam" data-p="bhavi">🏗️ I\'m Bhavi<small>GATE Civil (CE)</small></button></div>';
+  if(needDate)h+='<span class="lbl">Journey start date</span><input class="field" type="date" id="startIn" value="'+ds(new Date())+'" data-inp="startdate"><small>Set once. It is shared through the cloud save, so Bhavi sees the same date.</small>';
+  h+='</div>';
+  var w=$('sheetWrap');w.innerHTML=h;w.removeAttribute('data-act');w.hidden=false;
+}
+function drawConnect(){
+  var on=synOn(),o=nm(other(me||'yashu'));
+  var h='<div class="sheet glass" id="sheetBody" role="dialog" aria-modal="true" aria-label="Cloud save"><div class="shead"><h2>☁️ Shared cloud save</h2><button class="x" data-act="closesheet" aria-label="Close">✕</button></div>';
+  h+='<p class="lead">So you both see each other\'s ticks on any phone. It uses a free Firebase database. Setup takes about 3 minutes, once. Steps are in SETUP.md.</p>';
+  h+='<span class="lbl">Database URL</span><input class="field" id="connUrl" data-inp="conn" placeholder="https://your-app-default-rtdb.firebaseio.com" value="'+esc(SYN.url)+'" autocapitalize="off" autocorrect="off" spellcheck="false">';
+  h+='<span class="lbl">Secret room code <small>(same for both of you, keep it private)</small></span><input class="field" id="connRoom" data-inp="conn" value="'+esc(SYN.room||randRoom())+'" autocapitalize="off" autocorrect="off" spellcheck="false">';
+  h+='<div class="err" id="connMsg"></div><div class="stack"><button class="btn pri" data-act="testconn">🔌 Test &amp; connect</button>';
+  if(on)h+='<button class="btn" data-act="invite">🔗 Copy invite link for '+esc(o)+'</button><button class="btn" data-act="disconnect">Disconnect (data stays on this device)</button>';
+  h+='<button class="btn" data-act="skipconn">'+(on?'Close':'Skip for now')+'</button></div><div class="hintbox">Your room code works like a password: anyone who has the database URL and the code can read and write your progress. Only share the invite link with each other.</div></div>';
+  var w=$('sheetWrap');w.innerHTML=h;w.setAttribute('data-act','closesheet');w.hidden=false;
+}
+function drawSettings(){
+  var h='<div class="sheet glass" id="sheetBody" role="dialog" aria-modal="true" aria-label="Settings"><div class="shead"><h2>⚙️ Settings</h2><button class="x" data-act="closesheet" aria-label="Close">✕</button></div>';
+  h+='<span class="lbl">This device belongs to</span><div class="chips"><button class="chip'+(me==='yashu'?' on':'')+'" data-act="iam" data-p="yashu">💻 Yashu</button><button class="chip'+(me==='bhavi'?' on':'')+'" data-act="iam" data-p="bhavi">🏗️ Bhavi</button></div>';
+  h+='<span class="lbl">Cloud save</span><p class="lead">'+(synOn()?'☁️ Connected. You and your partner share progress.':'📴 Not connected. Progress is saved on this device only.')+'</p><button class="btn" data-act="connect">☁️ '+(synOn()?'Manage cloud save':'Set up cloud save')+'</button>';
+  h+='<span class="lbl">Journey start date</span><input class="field" type="date" id="startIn" value="'+startStr()+'" data-inp="startdate"><button class="btn" data-act="savestart" style="margin-top:8px">Save start date</button><small>Day numbers stay the same; only the calendar dates shift.</small>';
+  h+='<span class="lbl">Smart Buddy <small>(optional)</small></span><p class="lead">'+(AIKEY?'🤖 Smart mode is ON (key saved on this device only).':'Paste your own Claude API key to unlock free chat and real quizzes. It stays in this browser only and you pay Anthropic directly (very small with the cheap model).')+'</p>';
+  h+=AIKEY?'<button class="btn" data-act="clearkey">Remove key</button>':'<input class="field" type="password" id="apikey" data-inp="apikey" placeholder="sk-ant-…" autocomplete="off" autocapitalize="off" spellcheck="false"><button class="btn" data-act="savekey" style="margin-top:8px">Save key</button>';
+  h+='<span class="lbl">Look</span><div class="chips"><button class="chip'+(theme==='dark'?' on':'')+'" data-act="theme" data-v="dark">🍷 Burgundy night</button><button class="chip'+(theme==='light'?' on':'')+'" data-act="theme" data-v="light">🌸 Blush day</button></div>';
+  h+='<span class="lbl">Install like an app</span><div class="hintbox">Android (Chrome): menu ⋮ then “Install app”. iPhone (Safari): Share then “Add to Home Screen”. It opens full-screen with its own icon.</div>';
+  h+='<span class="lbl">Backup / merge code</span><textarea class="field" id="codeOut" readonly rows="3">'+esc(makeCode())+'</textarea><button class="btn" data-act="copycode" style="margin-top:8px">📋 Copy my code</button><textarea class="field" id="codeIn" data-inp="codein" rows="3" placeholder="Paste a code here to merge it"></textarea><button class="btn" data-act="mergecode" style="margin-top:8px">💞 Merge code</button><div class="err" id="setErr"></div></div>';
+  var w=$('sheetWrap');w.innerHTML=h;w.setAttribute('data-act','closesheet');w.hidden=false;
+}
+async function doConnect(){
+  var u=$('connUrl').value,r=String($('connRoom').value||'').trim(),msg=$('connMsg');
+  if(!okUrl(u)){msg.textContent='That URL does not look right. It starts with https://';return}
+  if(!okRoom(r)){msg.textContent='Room code: 6 to 40 letters, numbers, - or _ only.';return}
+  msg.textContent='Testing… ⏳';
+  var res=await testConn(u,r);
+  if(!res.ok){msg.textContent=res.msg;return}
+  SYN={url:normUrl(u),room:r};persist();startSync();
+  if(cfg.start)writeCfg();
+  if(me&&Object.keys(D[me].days).length)markDirty();
+  drawConnect();var m2=$('connMsg');if(m2)m2.textContent='✅ Connected! Now copy the invite link and send it to '+nm(other(me||'yashu'))+'.';
+}
+function inviteLink(){return location.origin+location.pathname+'#db='+encodeURIComponent(SYN.url)+'&room='+encodeURIComponent(SYN.room)}
+function makeCode(){return btoa(unescape(encodeURIComponent(JSON.stringify({v:1,start:cfg.start,D:D}))))}
+function mergeCode(str){
+  var o;try{o=JSON.parse(decodeURIComponent(escape(atob(str.trim()))))}catch(e){return -1}
+  if(!o||typeof o!=='object'||!o.D)return -1;
+  ['yashu','bhavi'].forEach(function(p){if(o.D[p])D[p]=mergeDocs(D[p],sanitizeDoc(o.D[p]))});
+  if(!cfg.start&&typeof o.start==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(o.start)){cfg.start=o.start;MEMO={}}
+  persist();if(me)markDirty();return 1;
+}
+
+/* ================= EVENTS ================= */
+document.addEventListener('click',function(ev){
+  var el=ev.target.closest?ev.target.closest('[data-act]'):null;if(!el)return;
+  var act=el.getAttribute('data-act'),V=function(k){return el.getAttribute(k)};
+  if(act==='closesheet'){if(ev.target!==el&&!(el.classList&&el.classList.contains('x')))return;closeSheet();return}
+  if(act==='tab'){go(V('data-t'))}
+  else if(act==='who'){view=V('data-p');renderAll(true)}
+  else if(act==='day'){openSheet(parseInt(V('data-n'),10))}
+  else if(act==='month'){monthSel=parseInt(V('data-i'),10);renderAll(true)}
+  else if(act==='syl'){var i=parseInt(V('data-i'),10);openSyl[i]=!openSyl[i];renderAll(true)}
+  else if(act==='sylmode'){sylMode=V('data-v');renderAll(true)}
+  else if(act==='quickdone'){if(!me)return drawOnboard();setDone(parseInt(V('data-n'),10),{});renderAll(true)}
+  else if(act==='cdone'){setDone(parseInt(V('data-n'),10),{note:ent(me,parseInt(V('data-n'),10)).n});renderAll(true)}
+  else if(act==='cdrop'){setDrop(parseInt(V('data-n'),10),{});renderAll(true)}
+  else if(act==='mood'){
+    if(!me)return drawOnboard();
+    var n=clampDay(todayNo()),e=ent(me,n);
+    D[me].days[n]=Object.assign({},e,{m:V('data-v'),u:Date.now()});moodShift=0;delete QUOTES.__fresh;markDirty();renderAll(true);
+  }
+  else if(act==='anotherq'){delete QUOTES.__fresh;moodShift++;renderAll(true)}
+  else if(act==='buddyq'){freshQuote()}
+  else if(act==='smin'){sheet.min=parseInt(V('data-v'),10);drawSheet()}
+  else if(act==='smood'){sheet.mood=(sheet.mood===V('data-v'))?null:V('data-v');drawSheet()}
+  else if(act==='reason'){var r=V('data-v');sheet.note=sheet.note?(sheet.note.indexOf(r)>=0?sheet.note:sheet.note+', '+r):r;sheet.err='';drawSheet()}
+  else if(act==='sdone'){setDone(sheet.n,{min:sheet.min,mood:sheet.mood,note:sheet.note});closeSheet();renderAll(true)}
+  else if(act==='scarry'){
+    if(sheet.note.trim().length<2){sheet.err='Add a quick note first (or tap a reason) 💌';drawSheet();return}
+    setCarry(sheet.n,{note:sheet.note.trim(),mood:sheet.mood});closeSheet();renderAll(true);
+  }
+  else if(act==='sdrop'){setDrop(sheet.n,{note:sheet.note.trim()});closeSheet();renderAll(true)}
+  else if(act==='sclear'){clearDay(sheet.n);closeSheet();renderAll(true)}
+  else if(act==='iam'){
+    var p=V('data-p');me=p;view=p;
+    var si=$('startIn');
+    if(!cfg.start){cfg.start=(si&&/^\d{4}-\d{2}-\d{2}$/.test(si.value))?si.value:ds(new Date());MEMO={};writeCfg()}
+    persist();closeSheet();renderAll(false);
+    if(!synOn()&&!cfg.skip)drawConnect();
+    if(dirty||Object.keys(D[p].days).length)markDirty();
+  }
+  else if(act==='settings'){drawSettings()}
+  else if(act==='connect'){drawConnect()}
+  else if(act==='testconn'){doConnect()}
+  else if(act==='invite'){
+    var link=inviteLink(),cm=$('connMsg');
+    var fb2=function(){if(cm)cm.textContent='Copy this link and send it privately: '+link};
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(link).then(function(){snack('Invite link copied 🔗 Send it privately')},fb2);else fb2();
+  }
+  else if(act==='disconnect'){SYN={url:'',room:''};persist();clearInterval(synTimer);setSync('local');drawConnect()}
+  else if(act==='skipconn'){cfg.skip=1;persist();closeSheet()}
+  else if(act==='savekey'){
+    var kv=String(($('apikey')||{}).value||'').trim();
+    if(kv.indexOf('sk-ant-')!==0){snack('That does not look like a Claude API key');return}
+    AIKEY=kv;persist();snack('Smart Buddy is on 🤖');drawSettings();
+  }
+  else if(act==='clearkey'){AIKEY='';persist();snack('Key removed');drawSettings()}
+  else if(act==='theme'){theme=V('data-v');document.documentElement.setAttribute('data-theme',theme);persist();drawSettings()}
+  else if(act==='savestart'){
+    var s2=$('startIn');
+    if(s2&&/^\d{4}-\d{2}-\d{2}$/.test(s2.value)){cfg.start=s2.value;MEMO={};writeCfg();closeSheet();renderAll(true);snack('Start date saved 📅')}
+  }
+  else if(act==='copycode'){
+    var ta=$('codeOut'),txt=makeCode();ta.value=txt;
+    var fb=function(){ta.select();var ok=false;try{ok=document.execCommand('copy')}catch(e){}snack(ok?'Code copied 📋':'Select the code and copy it by hand')};
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(txt).then(function(){snack('Code copied 📋')},fb);else fb();
+  }
+  else if(act==='mergecode'){
+    var r2=mergeCode($('codeIn').value||'');
+    if(r2<0){var er=$('setErr');if(er)er.textContent='That code did not look right. Paste the whole thing.'}
+    else{closeSheet();renderAll(true);snack('Merged 💞')}
+  }
+  else if(act==='ask'){sendChat(PROMPTS[V('data-k')],V('data-k'))}
+  else if(act==='send'){var ci=$('chatIn'),tx=ci?ci.value:'';if(ci){ci.value=''}sendChat(tx,'chat')}
+  else if(act==='snackbtn'){var f=snackFn;$('snack').classList.remove('show');if(f)f()}
+});
+document.addEventListener('input',function(ev){
+  var t=ev.target,k=t.getAttribute?t.getAttribute('data-inp'):null;if(!k)return;
+  if(k==='note'&&sheet){sheet.note=t.value;sheet.err=''}
+  if(k==='chat'){t.style.height='auto';t.style.height=Math.min(120,t.scrollHeight)+'px'}
+});
+document.addEventListener('keydown',function(ev){
+  if(ev.key==='Escape'&&sheet)closeSheet();
+  if(ev.key==='Enter'&&!ev.shiftKey&&ev.target&&ev.target.getAttribute&&ev.target.getAttribute('data-inp')==='chat'){
+    ev.preventDefault();var ci=ev.target,tx=ci.value;ci.value='';ci.style.height='auto';sendChat(tx,'chat');
+  }
+});
+
+/* ================= START ================= */
+function registerSW(){
+  try{if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol))window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}catch(e){}
+}
+loadLocal();readHash();
+document.documentElement.setAttribute('data-theme',theme);
+monthSel=(function(){var t=todayNo();return t<1?0:monthOf(Math.min(t,730))})();
+initTop();initTabbar();initFx();
+renderAll(false);
+if(!me)drawOnboard();
+startSync();
+registerSW();
+})();
+</script>
+</body>
+</html>
